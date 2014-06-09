@@ -1,7 +1,7 @@
 import pkgutil
 import importlib
 
-from flask import Flask
+from flask import Flask, Blueprint
 
 
 def create_app(package_name, package_path, settings_override=None):
