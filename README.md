@@ -19,7 +19,7 @@ This project is meant to serve as template for new projects.
 1. Run web server
 
    ```bash
-   (webapp-env)$ python wsgy.py
+   (webapp-env)$ python wsgi.py
    ```
 
 ## Unittests ##
