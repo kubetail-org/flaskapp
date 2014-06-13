@@ -5,6 +5,8 @@ import importlib
 import jinja2
 from flask import Flask, Blueprint
 
+from webapp.meta import mail
+
 
 def create_app(package_name, package_path, settings_override=None):
     """Create app
@@ -20,6 +22,9 @@ def create_app(package_name, package_path, settings_override=None):
             jinja2.FileSystemLoader([pkgdir + '/templates']),
             app.jinja_loader
             ])
+
+    # init Flask-Mail
+    mail.init_app(app)
 
     # register blueprints
     for _, name, _ in pkgutil.iter_modules(package_path):
