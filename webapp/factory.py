@@ -8,13 +8,13 @@ from flask import Flask, Blueprint
 from webapp.meta import mail
 
 
-def create_app(package_name, package_path, settings_override=None):
+def create_app(package_name, package_path, extra_config=None):
     """Create app
     """
-    app = Flask(package_name, instance_relative_config=True)
+    app = Flask(package_name)
 
     app.config.from_object('config')
-    app.config.from_object(settings_override)
+    app.config.update(**(extra_config or {}))
 
     # configure jinja2
     pkgdir = os.path.abspath(os.path.dirname(__file__))

@@ -9,7 +9,7 @@ class TestCase(unittest.TestCase):
     # Test-level setup/teardown
     # ==============================
     def setUp(self):
-        app = bp1.create_app('test_settings')
+        app = bp1.create_app(extra_config={'TESTING': True})
         self.app = app.test_client()
 
     # ==============================

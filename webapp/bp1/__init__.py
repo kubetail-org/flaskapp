@@ -1,7 +1,7 @@
 from webapp import factory
 
-def create_app(settings_override=None):
+def create_app(extra_config=None):
     """Return blueprint1 app instance
     """
-    app = factory.create_app(__name__, __path__, settings_override)
+    app = factory.create_app(__name__, __path__, extra_config)
     return app
