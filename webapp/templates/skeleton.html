@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block TITLE %}Webapp{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="nodp, noydir">
+    <meta name="description" content="{% block DESCRIPTION %}{% endblock %}">
+    <meta name="keywords" content="{% block KEYWORDS %}{% endblock %}">
+    {% block HEADERTAGS %}{% endblock %}
+  </head>
+  <body>
+    {% block HTML %}{% endblock %}
+    {% block FOOTERTAGS %}{% endblock %}
+  </body>
+</html>

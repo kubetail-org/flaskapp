@@ -8,7 +8,7 @@ bp = Blueprint('bp1', __name__)
 def path1():
     """GET /: render path1
     """
-    return render_template('/bp1/path1.html')
+    return render_template('/path1.html')
 
 
 @bp.route('/path2', methods=['GET'])
