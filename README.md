@@ -6,21 +6,21 @@ This project is meant to serve as template for new projects.
 
 1. Install dependencies
 
-```bash
-(webapp-env)$ pip install -r requirements.txt
-```
+   ```bash
+   (webapp-env)$ pip install -r requirements.txt
+   ```
 
 1. Install package
 
-```bash
-(webapp-env)$ python setup.py develop
-```
+   ```bash
+   (webapp-env)$ python setup.py develop
+   ```
 
-1 Run Web server
+1. Run web server
 
-```bash
-(webapp-env)$ python wsgy.py
-```
+   ```bash
+   (webapp-env)$ python wsgi.py
+   ```
 
 ## Unittests ##
 
