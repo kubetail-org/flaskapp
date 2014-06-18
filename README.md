@@ -16,6 +16,12 @@ This project is meant to serve as template for new projects.
    (webapp-env)$ python setup.py develop
    ```
 
+1. Set up database
+
+   ```bash
+   (webapp-env)$ python scripts/create_db.py
+   ```
+
 1. Run web server
 
    ```bash
@@ -33,5 +39,31 @@ To run all tests:
 To run an individual test:
 
 ```bash
-(webapp-env)$ nosetests test_bp1.py
+(webapp-env)$ nosetests tests/views/test_content.py
 ```
+
+## Development ##
+
+Dependencies:
+
+ - nodejs
+ - npm
+ - Bower (http://bower.io/)
+
+1. Install nodejs dependencies
+
+   ```bash
+   $ npm install
+   ```
+
+1. Install bootstrap-sass-official
+
+   ```
+   $ bower install bootstrap-sass-official
+   ```
+
+1. Run frontend build scripts
+
+   ```
+   $ grunt build
+   ```
