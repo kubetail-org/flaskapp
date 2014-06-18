@@ -1,13 +1,10 @@
 from werkzeug.serving import run_simple
 from werkzeug.wsgi import DispatcherMiddleware
 
-from webapp import bp1, bp2
+from webapp import create_app
 
 
-application = DispatcherMiddleware(
-    bp1.create_app(),
-    {'/bp2': bp2.create_app()}
-    )
+application = create_app()
 
 
 if __name__ == "__main__":

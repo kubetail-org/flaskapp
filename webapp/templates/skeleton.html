@@ -3,11 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block TITLE %}Webapp{% endblock %}</title>
+    <title>{% block TITLE %}{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="nodp, noydir">
     <meta name="description" content="{% block DESCRIPTION %}{% endblock %}">
     <meta name="keywords" content="{% block KEYWORDS %}{% endblock %}">
+    <meta name="csrf-token" content="{{csrf_token()}}">
+    <link rel="shortcut icon" href="/static/favicon.ico"></link>
     {% block HEADERTAGS %}{% endblock %}
   </head>
   <body>
