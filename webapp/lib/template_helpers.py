@@ -1,4 +1,5 @@
 import datetime
+import pkg_resources
 
 from jinja2 import Markup
 

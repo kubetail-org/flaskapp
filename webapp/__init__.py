@@ -8,7 +8,8 @@ from flask.ext.principal import Principal, UserNeed, identity_loaded
 from webapp.lib import template_helpers
 from webapp.meta import mail, db, lm
 from webapp.models import User
-from webapp.views import content, auth
+from webapp.views import content, auth, dashboard
+
 
 # ================================
 # App creator method
@@ -48,6 +49,7 @@ def create_app(extra_config=None):
     # register blueprints
     app.register_blueprint(content.bp)
     app.register_blueprint(auth.bp, url_prefix='/auth')
+    app.register_blueprint(dashboard.bp, url_prefix='/dashboard')
 
     return app
 
