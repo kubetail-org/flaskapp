@@ -17,15 +17,15 @@
 
 
 {% macro modal_header_html() -%}
-<a id="modal-header-brand" href="/"><img src="/static/logo_256_256.png"> ErrorPage</a>
+<a id="modal-header-brand" href="/">Webapp</a>
 {%- endmacro %}
 
 
 {% macro modal_footer_html() -%}
 <nav role="navigation">
   <div class="container-fluid">
-    <a href="mailto:contact@errorpage.io">Contact us</a>
+    <a href="mailto:contact@example.com">Contact us</a>
     &middot;
-    &copy;{{ h.datetime.datetime.today().year }} ErrorPage
+    &copy;{{ h.datetime.datetime.today().year }} Webapp
 </nav>
 {%- endmacro %}

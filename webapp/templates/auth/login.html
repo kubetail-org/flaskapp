@@ -1,0 +1,54 @@
+{% extends "/shared/modal-layout.html" %}
+
+
+{% block HEADERTAGS %}
+{{ super() }}
+<style>
+  .panel {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  button + a {
+    margin-left: 20px;
+  }
+</style>
+{% endblock %}
+
+
+{% block BODY %}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form method="post" action="{{ url_for('auth.login') }}" role="form">
+      <legend>Log in to your account</legend>
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email(class_="form-control", placeholder="Email address",
+                      autofocus="true") }}
+        {% if form.email.errors -%}
+        <div class="text-danger">{{ form.email.errors[0] }}</div>
+        {%- endif %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label }}
+        {{ form.password(class_="form-control", placeholder="Password") }}
+        {% if form.password.errors -%}
+        <div class="text-danger">{{ form.password.errors[0] }}</div>
+        {%- endif %}
+      </div>
+      <div class="checkbox">
+        {{ form.remember_me() }}
+        {{ form.remember_me.label }}
+      </div>
+      <button type="submit" class="btn btn-primary">Log in</button>
+      <a href="{{ url_for('auth.forgot') }}">Forgot password?</a>
+    </form>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body text-center">
+    Don't have an account? <a href="{{ url_for('auth.create_account') }}">Create a new account &raquo;</a>
+  </div>
+</div>
+{% endblock %}

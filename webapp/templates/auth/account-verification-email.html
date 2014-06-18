@@ -1,0 +1,14 @@
+{% extends "/shared-email/base-layout.html" %}
+
+
+{% block BODY %}
+<div class="content-container">
+  <h2>Confirm your Account</h2>
+  <hr>
+  <p>Congratulations! A new account has just been created for your email address. To confirm your account please click on the button below:</p>
+  <p><a href="{{ verify_url }}" class="btn btn-primary">Confirm Account &raquo;</a></p>
+  <p>If you're having trouble you can also use this link:</p>
+  <p><a href="{{ verify_url }}">{{ verify_url }}</a></p>
+  <p><em>Note: If you did not create an account please let us know (<a href="mailto:contact@errorpage.io">contact@errorpage.io</a>)</em></p>
+</div>
+{% endblock %}

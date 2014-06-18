@@ -9,8 +9,8 @@ from flask.ext.mail import Message
 from premailer import transform
 
 from webapp.meta import db, mail
-#from epweb.forms import (LoginForm, CreateAccountForm, ForgotPasswordForm,
-#                         ResetPasswordForm)
+from webapp.forms import (LoginForm, CreateAccountForm, ForgotPasswordForm,
+                          ResetPasswordForm)
 from webapp.models import (User, AccountVerificationRequest,
                            PasswordResetRequest)
 from webapp.lib.util import generate_password_hash

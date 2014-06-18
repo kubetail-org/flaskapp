@@ -1,0 +1,56 @@
+{% extends "/shared/modal-layout.html" %}
+
+
+{% block HEADERTAGS %}
+{{ super() }} 
+<style>
+  .panel {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+</style>
+{% endblock %}
+
+
+{% block BODY %}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form method="post" action="{{ url_for('auth.create_account') }}" role="form">
+      <legend>Create a new account</legend>
+      {{ form.csrf_token }} 
+      <div class="form-group">
+        {{ form.email.label }} 
+        {{ form.email(class_="form-control", placeholder="Email address",
+                      autofocus="true") }} 
+        {% if form.email.errors -%}
+        <div class="text-danger">{{ form.email.errors[0] }}</div>
+        {%- endif %}
+      </div>
+      <div class="form-group">
+        {{ form.password.label }} 
+        {{ form.password(class_="form-control", placeholder="Password") }} 
+        {% if form.password.errors -%}
+        <div class="text-danger">{{ form.password.errors[0] }}</div>
+        {%- endif %}
+      </div>
+      <div class="form-group">
+        {{ form.password_confirm.label }} 
+        {{ form.password_confirm(class_="form-control") }} 
+        {% if form.password_confirm.errors -%}
+        <div class="text-danger">{{ form.password_confirm.errors[0] }}</div>
+        {%- endif %}
+      </div>
+      <div class="checkbox">
+        {{ form.newsletter() }} 
+        {{ form.newsletter.label }} 
+      </div>
+      <button type="submit" class="btn btn-primary">Create account</button>
+    </form>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="panel-body text-center">
+    Already have an account? <a href="{{ url_for('auth.login') }}">Log in to your account &raquo;</a>
+  </div>
+</div>
+{% endblock %}

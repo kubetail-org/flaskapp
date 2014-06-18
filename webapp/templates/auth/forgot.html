@@ -1,0 +1,38 @@
+{% extends "/shared/modal-layout.html" %}
+
+
+{% block HEADERTAGS %}
+{{ super() }}
+<style>
+  .panel {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+</style>
+{% endblock %}
+
+
+{% block BODY %}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form method="post" action="{{ url_for('auth.forgot') }}" role="form">
+      <legend>Reset your password</legend>
+      {{ form.csrf_token }}
+      <div class="form-group">
+        {{ form.email.label }}
+        {{ form.email(class_="form-control", placeholder="Email address",
+                      autofocus="true") }}
+        {% if form.email.errors -%}
+        <div class="text-danger">{{ form.email.errors[0] }}</div>
+        {%- endif %}
+      </div>
+      <button type="submit" class="btn btn-primary">Reset password</button>
+    </form>
+  </div>
+</div>
+<div class="panel plane-default">
+  <div class="panel-body text-center">
+    Remember your password? <a href="{{ url_for('auth.login') }}">Log in to your account &raquo;</a>
+  </div>
+</div>
+{% endblock %}
