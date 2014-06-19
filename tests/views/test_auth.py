@@ -135,11 +135,12 @@ class AuthTests(WebsiteTestCase):
         self.assertTrue('Error' in resp.data)
 
         # test good key, bad email
-        resp = self.client.get(reset_url + '&email=bademail')
+        u = re.sub('email=.*?&|$', '', reset_url) + '&email=bademail'
+        resp = self.client.get(u)
         self.assertTrue('Error' in resp.data)
 
         # test good request
-        resp = self.client.get(reset_url)
+        resp = self.client.get(reset_url)        
         self.assertEqual(resp.status_code, 200)
 
         # test submission

@@ -47,10 +47,10 @@ class WebsiteTestCase(unittest.TestCase):
     # ==============================
     # Utility methods
     # ==============================
-    def login(self, email, password, remember_me='y'):
+    def login(self, email, password):
         """Log in user and return response
         """
-        data = dict(email=email, password=password, remember_me=remember_me)
+        data = dict(email=email, password=password)
         return self.client.post(self.url_for('auth.login'), data=data)
 
     def logout(self):
