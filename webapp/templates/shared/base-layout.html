@@ -6,6 +6,22 @@
 {{ h.stylesheet_tag('/static/shared/css/global.css') }} 
 {{ h.javascript_tag('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
 {{ h.javascript_tag('//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}
+{% withmessages = get_flashed_messages() -%}
+{% if messages -%}
+<script>
+  jQuery(function() {
+    var $ul = $('<ul id="g-flashes" class="list-unstyled"/>')
+    {% for message in messages: -%}
+      .append($('<li/>').text('{{ message }}'))
+    {%- endfor %}
+      .css({position: 'fixed', top: 0, right: 0})
+      .appendTo('body');
+
+    setTimeout(function(){$ul.remove();}, 6500);
+  });
+</script>
+{%- endif %}
+{%- endwith %}
 {% endblock %}
 
 

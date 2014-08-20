@@ -1,6 +1,7 @@
-@import "/home/ubuntu/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/variables";
-@import "/home/ubuntu/bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/mixins";
+@import "/home/ubuntu/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/variables";
+@import "/home/ubuntu/bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/mixins";
 @import "mixins";
+
 
 /***************************
  * Variables
@@ -17,6 +18,10 @@ $navBorderColor: #aaa;
 /* Footer */
 $footerHeight: 80px;
 $footerBackgroundColor: $headerBackgroundColor;
+
+/* Flashes */
+$flashesColor: white;
+$flashesBackgroundColor: red;
 
 
 /***************************
@@ -94,6 +99,20 @@ body {
  ***************************/
 .g-main-panel {
   @include calc(min-height, "100vh - 180px");
+}
+
+#g-flashes {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  li {
+    font-size: 12px;
+    color: $flashesColor;
+    background-color: $flashesBackgroundColor;
+    padding: 1px 5px;
+    margin: 2px;
+  }
 }
 
 
