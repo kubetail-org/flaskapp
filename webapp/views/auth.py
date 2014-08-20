@@ -36,7 +36,7 @@ def login():
         identity_changed.send(current_app._get_current_object(),
                               identity=Identity(u.id))
 
-        return redirect(url_for('dashboard.home'))
+        return redirect(request.args.get('next') or url_for('dashboard.home'))
 
     return render_template('/auth/login.html', form=form)
 
@@ -51,7 +51,7 @@ def logout():
     identity_changed.send(current_app._get_current_object(),
                           identity=AnonymousIdentity())
 
-    return redirect(url_for('content.home'))
+    return redirect(request.args.get('next') or url_for('content.home'))
 
 
 @bp.route('/create-account', methods=['GET', 'POST'])
@@ -96,7 +96,7 @@ def create_account():
         identity_changed.send(current_app._get_current_object(),
                               identity=Identity(u.id))
 
-        return redirect(url_for('dashboard.home'))
+        return redirect(request.args.get('next') or url_for('dashboard.home'))
 
     return render_template('/auth/create-account.html', form=form)
 

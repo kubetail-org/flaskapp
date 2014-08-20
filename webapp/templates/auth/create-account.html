@@ -15,7 +15,7 @@
 {% block BODY %}
 <div class="panel panel-default">
   <div class="panel-body">
-    <form method="post" action="{{ url_for('auth.create_account') }}" role="form">
+    <form method="post" action="{{ url_for('auth.create_account', **request.args) }}" role="form">
       <legend>Create a new account</legend>
       {{ form.csrf_token }} 
       <div class="form-group">

@@ -53,12 +53,12 @@
           <ul class="dropdown-menu">
             <li><a href="#">Account Settings</a></li>
             <li><a href="#">Send Feedback...</a></li>
-            <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
+            <li><a href="{{ url_for('auth.logout', next=request.url) }}">Log out</a></li>
           </ul>
         </li>
         {% else: %}
-        <li><a href="{{ url_for('auth.login') }}">Log in</a></li>
-        <li><a href="{{ url_for('auth.create_account') }}" class="btn btn-default">Sign up</a></li>
+        <li><a href="{{ url_for('auth.login', next=request.url) }}">Log in</a></li>
+        <li><a href="{{ url_for('auth.create_account', next=request.url) }}" class="btn btn-default">Sign up</a></li>
         {% endif %}
       </ul>
     </div>
