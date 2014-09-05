@@ -6,7 +6,7 @@ from flask.ext.login import LoginManager
 mail = Mail()
 
 # Flask-SQLAlchemy instance
-db = SQLAlchemy()
+db = SQLAlchemy(session_options={'autocommit': True, 'autoflush': False})
 
 # Flask-Login instance
 lm = LoginManager()

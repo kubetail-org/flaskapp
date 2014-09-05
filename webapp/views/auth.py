@@ -70,7 +70,7 @@ def create_account():
         r = AccountVerificationRequest(key=os.urandom(32).encode('hex'),
                                        user=u)
         db.session.add(r)
-        db.session.commit()
+        db.session.flush()
 
         # generate email
         msg = Message('ErrorPage Account: Please Confirm Email',
@@ -117,7 +117,7 @@ def forgot():
 
         # save to db
         db.session.add(r)
-        db.session.commit()
+        db.session.flush()
 
         # generate email
         msg = Message('Password Reset Request',
@@ -161,7 +161,7 @@ def reset_password():
     delta = datetime.datetime.utcnow() - r.create_ts
     if delta.days > 0:
         db.session.delete(r)
-        db.session.commit()
+        db.session.flush()
         return render_template('/auth/reset-password-error.html'), 400
 
     # handle form
@@ -179,7 +179,7 @@ def reset_password():
 
         # delete password reset
         db.session.delete(r)
-        db.session.commit()
+        db.session.flush()
 
         return render_template('/auth/reset-password-followup.html')
 

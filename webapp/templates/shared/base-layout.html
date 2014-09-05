@@ -6,7 +6,7 @@
 {{ h.stylesheet_tag('/static/shared/css/global.css') }} 
 {{ h.javascript_tag('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
 {{ h.javascript_tag('//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}
-{% withmessages = get_flashed_messages() -%}
+{% with messages = get_flashed_messages() -%}
 {% if messages -%}
 <script>
   jQuery(function() {
