@@ -1,3 +1,6 @@
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
 from webapp import create_app
 from webapp.meta import db
 

@@ -8,12 +8,10 @@ module.exports = function(grunt) {
         options: {
           style: "compressed"
         },
-        files: {
-          "webapp/static/shared/css/global.css": "webapp/static/shared/css" +
-            "/_global.scss",
-          "webapp/static/shared-email/style.css": "webapp/static" +
-            "/shared-email/style.scss",
-        }
+        files: updatePaths({
+          "/shared/css/global.css": "/shared/css/_global.scss",
+          "/shared-email/style.css": "/shared-email/style.scss"
+        })
       }
     },
     /****************************
@@ -21,7 +19,7 @@ module.exports = function(grunt) {
      ****************************/
     watch: {
       sass: {
-        files: ['**/*.scss'],
+        files: [pkgPath('**/*.scss')],
         tasks: ['sass']
       }
     }
@@ -34,4 +32,20 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'sass'
   ]);
+}
+
+
+/***********************
+ * Utilities
+ ***********************/
+function updatePaths(obj) {
+  var d = {}, k;
+  for (k in obj) d[pkgPath(k)] = pkgPath(obj[k]);
+  return d;
+}
+
+
+function pkgPath(relPath) {
+  if (!relPath.indexOf('/') == 0) relPath = '/' + relPath;
+  return "../../webapp/static" + relPath;
 }

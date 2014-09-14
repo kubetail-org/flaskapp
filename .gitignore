@@ -19,7 +19,7 @@ docs/_build
 *.egg
 *.mo
 # styles
-.sass-cache/
-node_modules
 app.db
 test.db
+scripts/frontend/node_modules
+scripts/frontend/.sass-cache
