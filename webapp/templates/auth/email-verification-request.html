@@ -1,0 +1,28 @@
+{% extends "/shared/modal-layout.html" %}
+
+
+{% block HEADERTAGS %}
+{{ super() }}
+<style>
+  .panel {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+</style>
+{% endblock %}
+
+
+{% block BODY %}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form method="post"
+          action="{{ url_for('.email_verification_request', **request.args) }}"
+          role="form">
+      <legend>Send verification request</legend>
+      {{ form.csrf_token }}
+      <p>A verification request will be sent to your email address. Please check your inbox for an email from us with insructions on how to verify your email address.</p>
+      <button type="submit" class="btn btn-primary">Send request</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

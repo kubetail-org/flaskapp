@@ -1,6 +1,7 @@
 import re
 
 from webapp.meta import mail
+from webapp.models import User
 
 from . import WebsiteTestCase, users
 
@@ -158,3 +159,55 @@ class AuthTests(WebsiteTestCase):
         self.login(email, data['password'])
         resp = self.client.get('/')
         self.assertTrue(email in resp.data)
+
+    def test_email_verification_request(self):
+        email = users['userA']['email']
+        passwd = users['userA']['password']
+        self.create_account(email, passwd)
+
+        # check user
+        with self.app.app_context():
+            u = User.query.filter(User.email == email).first()
+            self.assertEqual(u.is_verified, False)
+
+        # test form
+        resp = self.client.get(self.url_for('auth.email_verification_request'))
+        self.assertTrue('<legend>Send verification request</legend>' \
+                            in resp.data)
+
+        # test submission
+        with mail.record_messages() as outbox:
+            url = self.url_for('auth.email_verification_request')
+            resp = self.client.post(url)
+            self.assertTrue('Success' in resp.data)
+            self.assertEqual(len(outbox), 1)
+            self.assertEqual(outbox[0].subject,
+                             'Webapp Account: Please Confirm Email')
+
+        # get reset url
+        m = re.search('/auth/verify-email.*$', outbox[0].body)
+        verify_url = m.group(0)
+
+        # test bad request
+        resp = self.client.get(self.url_for('auth.verify_email'))
+        self.assertTrue('Error' in resp.data)
+        self.assertEqual(resp.status_code, 400)
+
+        # test bad key
+        u = self.url_for('auth.verify_email', key='badkey')
+        resp = self.client.get(u)
+        self.assertTrue('Error' in resp.data)
+
+        # test good key, bad email
+        verify_url2 = re.sub('email=.*?&', 'email=bademail&', verify_url)
+        resp = self.client.get(verify_url2)
+        self.assertTrue('Error' in resp.data)
+
+        # test good request
+        resp = self.client.get(verify_url)
+        self.assertTrue('Your email has been verified' in resp.data)
+
+        # check user
+        with self.app.app_context():
+            u = User.query.filter(User.email == email).first()
+            self.assertEqual(u.is_verified, True)

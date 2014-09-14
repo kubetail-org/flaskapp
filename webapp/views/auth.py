@@ -2,7 +2,7 @@ import os
 import datetime
 
 from flask import (Blueprint, render_template, url_for, redirect, request,
-                   current_app)
+                   current_app, g)
 from flask.ext.login import login_user, logout_user, login_required
 from flask.ext.principal import identity_changed, Identity, AnonymousIdentity
 from flask.ext.mail import Message
@@ -66,30 +66,8 @@ def create_account():
         db.session.add(u)
         db.session.flush()
 
-        # create account verification request
-        r = AccountVerificationRequest(key=os.urandom(32).encode('hex'),
-                                       user=u)
-        db.session.add(r)
-        db.session.flush()
-
-        # generate email
-        msg = Message('ErrorPage Account: Please Confirm Email',
-                      recipients=[u.email])
-        verify_url = url_for('auth.verify_account', key=r.key, email=u.email, \
-                                 _external=True)
-
-        # txt
-        msg.body = render_template('/auth/account-verification-email.txt',
-                                   verify_url=verify_url)
-
-        # html
-        html = render_template('/auth/account-verification-email.html',
-                               verify_url=verify_url)
-        msg.html = transform(html,
-                             base_url=url_for('content.home', _external=True))
-
-        # TODO: send email
-        #mail.send(msg)
+        # send verification email
+        send_verification_email(u)
 
         # login user
         login_user(u, remember=True)

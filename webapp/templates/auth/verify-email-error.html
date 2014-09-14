@@ -1,0 +1,27 @@
+{% extends "/shared/modal-layout.html" %}
+
+
+{% block HEADERTAGS %}
+{{ super() }}
+<style>
+  .panel {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+</style>
+{% endblock %}
+
+
+{% block BODY %}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <legend>Error! Verification link has expired</legend>
+    <p>Sorry, the verification link you are using has expired. Please try to verify your account again.</p>
+    <p>Would you like to:</p>
+    <ul>
+      <li><a href="{{ url_for('.forgot') }}">Try again</a></li>
+      <li><a href="{{ url_for('content.home') }}">Continue using the site</a></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}
