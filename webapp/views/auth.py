@@ -6,13 +6,13 @@ from flask import (Blueprint, render_template, url_for, redirect, request,
 from flask.ext.login import login_user, logout_user, login_required
 from flask.ext.principal import identity_changed, Identity, AnonymousIdentity
 from flask.ext.mail import Message
+from flask.ext.wtf import Form
 from premailer import transform
 
 from webapp.meta import db, mail
 from webapp.forms import (LoginForm, CreateAccountForm, ForgotPasswordForm,
                           ResetPasswordForm)
-from webapp.models import (User, AccountVerificationRequest,
-                           PasswordResetRequest)
+from webapp.models import User, EmailVerificationRequest, PasswordResetRequest
 from webapp.lib.util import generate_password_hash
 
 
@@ -186,16 +186,76 @@ def reset_password():
     return render_template('/auth/reset-password.html', form=form)
 
 
-@bp.route('/account-verification-request', methods=['GET', 'POST'])
+@bp.route('/email-verification-request', methods=['GET', 'POST'])
 @login_required
-def account_verification_request():
-    """GET|POST /verify-account-request: handle account verification requests
+def email_verification_request():
+    """GET|POST /email-verification-request: handle email verification requests
     """
-    pass
+    u = g.user
+
+    form = Form()
+    if form.validate_on_submit():
+        send_verification_email(u)
+        fn = '/auth/email-verification-request-followup.html'
+        return render_template(fn, email=u.email)
+
+    return render_template('/auth/email-verification-request.html', form=form)
 
 
-@bp.route('/verify-account', methods=['GET'])
-def verify_account():
-    """GET|POST /verify-account: handle account verification request
+@bp.route('/verify-email', methods=['GET'])
+def verify_email():
+    """GET|POST /verify-email: handle email verification request
     """
-    pass
+    # get email-verification-request entry
+    f = (EmailVerificationRequest.key == request.args.get('key'),
+         User.email == request.args.get('email'))
+    r = EmailVerificationRequest.query.filter(*f).first()
+
+    # return error response if link doesn't exist or wrong email
+    if r == None or r.user.email != request.args['email']:
+        return render_template('/auth/verify-email-error.html'), 400
+
+    # expired if older than 3 days
+    delta = datetime.datetime.utcnow() - r.create_ts
+    if delta.days > 2:
+        db.session.delete(r)
+        db.session.flush()
+        return render_template('/auth/verify-email-error.html'), 400
+
+    # update status
+    u = r.user
+    u.is_verified = True
+    db.session.add(u)
+
+    # delete verification request
+    db.session.delete(r)
+    db.session.flush()
+
+    return render_template('/auth/verify-email-followup.html')
+
+
+# ===========================
+# Utility methods
+# ===========================
+def send_verification_email(user):
+    """Send verification email to user
+    """
+    # create email verification request
+    r = EmailVerificationRequest(key=os.urandom(32).encode('hex'),
+                                 user=user)
+    db.session.add(r)
+    db.session.flush()
+
+    # send email
+    subject = 'Webapp Account: Please Confirm Email'
+    msg = Message(subject, recipients=[user.email])
+    verify_url = url_for('.verify_email', key=r.key, email=user.email, \
+                             _external=True)
+
+    f = '/auth/verify-email-email'
+    msg.body = render_template(f + '.txt', verify_url=verify_url)
+
+    html = render_template(f + '.html', verify_url=verify_url)
+    base_url = url_for('content.home', _external=True)
+    msg.html = transform(html, base_url=base_url)
+    mail.send(msg)

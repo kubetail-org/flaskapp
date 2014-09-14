@@ -1,3 +1,0 @@
-recursive-include webapp/templates *
-recursive-include webapp/bp1/templates *
-recursive-include webapp/bp2/templates *
