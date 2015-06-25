@@ -2,22 +2,37 @@
 
 
 {% block HEADERTAGS %}
-{{ h.stylesheet_tag('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css') }}
-{{ h.stylesheet_tag(h.static('style.min.css')) }} 
-{{ h.javascript_tag('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
-{{ h.javascript_tag('//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}
+{{ h.stylesheet_tag('//cdn.muicss.com/mui-latest/css/mui.min.css') }}
+{# { h.stylesheet_tag(h.static('style.min.css')) } #}
+<script>
+  window.addEventListener('load', function() {
+    $script('//cdn.muicss.com/mui-latest/js/mui.min.js', 'mui');
+  });
+</script>
+
 {% with messages = get_flashed_messages() -%}
 {% if messages -%}
 <script>
-  jQuery(function() {
-    var $ul = $('<ul id="g-flashes" class="list-unstyled"/>')
-    {% for message in messages: -%}
-      .append($('<li/>').text('{{ message }}'))
-    {%- endfor %}
-      .css({position: 'fixed', top: 0, right: 0})
-      .appendTo('body');
+  window.addEventListener('load', function() {
+    var ul = document.createElement('ul'),
+        li;
 
-    setTimeout(function(){$ul.remove();}, 6500);
+    ul.className = 'mui-list-unstyled';
+    ul.style.position = 'fixed';
+    ul.style.top = 0;
+    ul.style.right = 0;
+
+    {% for message in messages: %}
+    li = document.createElement('li');
+    li.textContent = "{{ message }}";
+    ul.appendChild(li);
+    {% endfor %}
+
+    document.body.appendChild(ul);
+
+    setTimeout(function(){
+      ul.parentNode.removeChild(ul);
+    }, 6500);
   });
 </script>
 {%- endif %}
@@ -26,11 +41,13 @@
 
 
 {% block HTML %}
-<div id="g-wrapper">
-  <header>
-    {{ base_header_html() }}
-  </header>
-  <div class="container-fluid">
+<header class="mui-appbar">
+  <div class="mui-container mui-appbar-line-height">
+    <span class="mui-text-title mui-text-white">Flaskapp</span>
+  </div>
+</header>
+<div class="mui-container">
+  <div class="mui-panel">
     {% block BODY %}{% endblock %}
   </div>
 </div>
