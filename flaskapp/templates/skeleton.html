@@ -8,8 +8,8 @@
     <meta name="robots" content="nodp, noydir">
     <meta name="description" content="{% block DESCRIPTION %}{% endblock %}">
     <meta name="keywords" content="{% block KEYWORDS %}{% endblock %}">
-    <meta name="csrf-token" content="{{csrf_token()}}">
-    <link rel="shortcut icon" href="/static/favicon.ico"></link>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <link rel="shortcut icon" href="{{ h.static('favicon.ico') }}"></link>
     {% block HEADERTAGS %}{% endblock %}
   </head>
   <body>

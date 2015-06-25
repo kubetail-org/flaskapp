@@ -1,4 +1,6 @@
 import os
+import json
+import pkg_resources
 
 from flask import Flask, g
 from flask.ext.wtf import CsrfProtect
@@ -24,6 +26,10 @@ def create_app(extra_config=None):
     app.config.from_object('config')
     app.config.update(**(extra_config or {}))
     app.before_request(before_request)
+
+    # import static file manifest
+    js = pkg_resources.resource_string('flaskapp', '/static/rev-manifest.json')
+    app.config['static_manifest'] = json.loads(js)
 
     # configure jinja2 globals
     app.jinja_env.globals.update({'h': template_helpers})

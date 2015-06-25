@@ -3,7 +3,7 @@
 
 {% block HEADERTAGS %}
 {{ h.stylesheet_tag('//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css') }}
-{{ h.stylesheet_tag('/static/shared/css/global.css') }} 
+{{ h.stylesheet_tag(h.static('style.min.css')) }} 
 {{ h.javascript_tag('//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js') }}
 {{ h.javascript_tag('//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js') }}
 {% with messages = get_flashed_messages() -%}
@@ -65,7 +65,7 @@
         <li><a href="/support">Support</a></li>
         {% if g.user.is_authenticated(): %}
         <li class="dropdown">
-          <a data-toggle="dropdown" href="#">{{g.user.email}} <span class="caret"></span></a>
+          <a data-toggle="dropdown" href="#">{{ g.user.email }} <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Account Settings</a></li>
             <li><a href="#">Send Feedback...</a></li>
