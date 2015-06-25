@@ -31,7 +31,7 @@ def create_app(extra_config=None):
     js = pkg_resources.resource_string('flaskapp', '/static/rev-manifest.json')
     app.config['static_manifest'] = json.loads(js)
 
-    # configure jinja2 globals
+    # configure jinja2
     app.jinja_env.globals.update({'h': template_helpers})
 
     # add Flask-WTForms CSRF Protection
