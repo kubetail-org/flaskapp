@@ -1,3 +1,4 @@
+{% from "skeleton.js" import global_js -%}
 <!doctype html>
 <html lang="en-us">
   <head>
@@ -10,6 +11,11 @@
     <meta name="keywords" content="{% block KEYWORDS %}{% endblock %}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="shortcut icon" href="{{ h.static('favicon.ico') }}"></link>
+    <script>
+      {% autoescape false -%}
+      {{ global_js() }}
+      {%- endautoescape %}
+    </script>
     {% block HEADERTAGS %}{% endblock %}
   </head>
   <body>
