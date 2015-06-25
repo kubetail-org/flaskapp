@@ -23,7 +23,7 @@ MAIL_PASSWORD | SMTP password               | null    | yes
     $ virtualenv --distribute flaskapp-env
     $ cd flaskapp-env
     $ source bin/activate
-    (flaskapp-env)$ git clone git@github.com:errorpage/flaskapp.git src/flaskapp
+    (flaskapp-env)$ git clone git@github.com:amorey/flaskapp.git src/flaskapp
    ```
 
 1. Install dependencies
