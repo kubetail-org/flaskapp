@@ -15,7 +15,7 @@ from flaskapp.views import content, auth, dashboard
 # App creator method
 # ================================
 def create_app(extra_config=None):
-    """Create Flask app for Webapp
+    """Create Flask app for Flaskapp
     """
     app = Flask('flaskapp',
                 template_folder='templates',

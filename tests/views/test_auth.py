@@ -182,7 +182,7 @@ class AuthTests(WebsiteTestCase):
             self.assertTrue('Success' in resp.data)
             self.assertEqual(len(outbox), 1)
             self.assertEqual(outbox[0].subject,
-                             'Webapp Account: Please Confirm Email')
+                             'Flaskapp Account: Please Confirm Email')
 
         # get reset url
         m = re.search('/auth/verify-email.*$', outbox[0].body)

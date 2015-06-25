@@ -225,7 +225,7 @@ def send_verification_email(user):
     db.session.flush()
 
     # send email
-    subject = 'Webapp Account: Please Confirm Email'
+    subject = 'Flaskapp Account: Please Confirm Email'
     msg = Message(subject, recipients=[user.email])
     verify_url = url_for('.verify_email', key=r.key, email=user.email, \
                              _external=True)

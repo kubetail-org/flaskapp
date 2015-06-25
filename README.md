@@ -1,4 +1,4 @@
-# Webapp
+# Flaskapp
 
 This project is meant to serve as template for new projects.
 
