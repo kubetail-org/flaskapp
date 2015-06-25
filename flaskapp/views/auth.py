@@ -9,11 +9,11 @@ from flask.ext.mail import Message
 from flask.ext.wtf import Form
 from premailer import transform
 
-from webapp.meta import db, mail
-from webapp.forms import (LoginForm, CreateAccountForm, ForgotPasswordForm,
+from flaskapp.meta import db, mail
+from flaskapp.forms import (LoginForm, CreateAccountForm, ForgotPasswordForm,
                           ResetPasswordForm)
-from webapp.models import User, EmailVerificationRequest, PasswordResetRequest
-from webapp.lib.util import generate_password_hash
+from flaskapp.models import User, EmailVerificationRequest, PasswordResetRequest
+from flaskapp.lib.util import generate_password_hash
 
 
 bp = Blueprint('auth', __name__)

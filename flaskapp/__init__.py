@@ -5,10 +5,10 @@ from flask.ext.wtf import CsrfProtect
 from flask.ext.login import current_user
 from flask.ext.principal import Principal, UserNeed, identity_loaded
 
-from webapp.lib import template_helpers
-from webapp.meta import mail, db, lm
-from webapp.models import User
-from webapp.views import content, auth, dashboard
+from flaskapp.lib import template_helpers
+from flaskapp.meta import mail, db, lm
+from flaskapp.models import User
+from flaskapp.views import content, auth, dashboard
 
 
 # ================================
@@ -17,7 +17,7 @@ from webapp.views import content, auth, dashboard
 def create_app(extra_config=None):
     """Create Flask app for Webapp
     """
-    app = Flask('webapp',
+    app = Flask('flaskapp',
                 template_folder='templates',
                 static_folder='static')
 

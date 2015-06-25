@@ -4,8 +4,8 @@ import unittest
 from flask import url_for
 
 from config import basedir
-from webapp import create_app
-from webapp.meta import db
+from flaskapp import create_app
+from flaskapp.meta import db
 
 
 users = {

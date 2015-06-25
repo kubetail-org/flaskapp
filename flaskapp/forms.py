@@ -8,8 +8,8 @@ from wtforms.validators import (Required, Email, URL, EqualTo, ValidationError,
                                 StopValidation)
 from wtforms.widgets import PasswordInput, CheckboxInput
 
-from webapp.models import User
-from webapp.lib.util import verify_password_hash
+from flaskapp.models import User
+from flaskapp.lib.util import verify_password_hash
 
 
 # ============================

@@ -14,7 +14,7 @@ SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
 
 # Flask-Mail
 MAIL_USE_TLS = True
-MAIL_DEFAULT_SENDER = 'Webapp <noreply@webapp.com>'
+MAIL_DEFAULT_SENDER = 'Webapp <noreply@flaskapp.com>'
 MAIL_PORT = os.environ.get('MAIL_PORT')
 MAIL_SERVER = os.environ.get('MAIL_SERVER')
 MAIL_USERNAME = os.environ.get('MAIL_USERNAME')

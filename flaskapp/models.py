@@ -1,6 +1,6 @@
 import datetime
 
-from webapp.meta import db
+from flaskapp.meta import db
 
 
 # ================================

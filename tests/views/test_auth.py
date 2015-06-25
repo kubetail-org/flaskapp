@@ -1,7 +1,7 @@
 import re
 
-from webapp.meta import mail
-from webapp.models import User
+from flaskapp.meta import mail
+from flaskapp.models import User
 
 from . import WebsiteTestCase, users
 

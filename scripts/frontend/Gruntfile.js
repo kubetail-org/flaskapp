@@ -47,5 +47,5 @@ function updatePaths(obj) {
 
 function pkgPath(relPath) {
   if (!relPath.indexOf('/') == 0) relPath = '/' + relPath;
-  return "../../webapp/static" + relPath;
+  return "../../flaskapp/static" + relPath;
 }

@@ -1,7 +1,7 @@
 from werkzeug.serving import run_simple
 from werkzeug.wsgi import DispatcherMiddleware
 
-from webapp import create_app
+from flaskapp import create_app
 
 
 application = create_app()
