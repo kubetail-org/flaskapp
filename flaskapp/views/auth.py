@@ -11,17 +11,15 @@ from premailer import transform
 
 from flaskapp.meta import db, mail
 from flaskapp.forms import (LoginForm, CreateAccountForm, ForgotPasswordForm,
-                          ResetPasswordForm)
-from flaskapp.models import User, EmailVerificationRequest, PasswordResetRequest
+                            ResetPasswordForm)
+from flaskapp.models import (User, EmailVerificationRequest, 
+                             PasswordResetRequest)
 from flaskapp.lib.util import generate_password_hash
 
 
 bp = Blueprint('auth', __name__)
 
 
-# ===============================
-# Route handlers
-# ===============================
 @bp.route('/login', methods=['GET', 'POST'])
 def login():
     """GET|POST /login: login form handler
@@ -212,9 +210,6 @@ def verify_email():
     return render_template('/auth/verify-email-followup.html')
 
 
-# ===========================
-# Utility methods
-# ===========================
 def send_verification_email(user):
     """Send verification email to user
     """

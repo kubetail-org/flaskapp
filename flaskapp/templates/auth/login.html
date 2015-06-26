@@ -4,9 +4,8 @@
 {% block HEADERTAGS %}
 {{ super() }}
 <style>
-  .panel {
+  .mui-panel {
     max-width: 500px;
-    margin: 0 auto;
   }
 
   button + a {
@@ -17,38 +16,34 @@
 
 
 {% block BODY %}
-<div class="panel panel-default">
-  <div class="panel-body">
-    <form method="post" action="{{ url_for('auth.login', **request.args) }}" role="form">
-      <legend>Log in to your account</legend>
-      {{ form.csrf_token }}
-      <div class="form-group">
-        {{ form.email.label }}
-        {{ form.email(class_="form-control", placeholder="Email address",
-                      autofocus="true") }}
-        {% if form.email.errors -%}
-        <div class="text-danger">{{ form.email.errors[0] }}</div>
-        {%- endif %}
-      </div>
-      <div class="form-group">
-        {{ form.password.label }}
-        {{ form.password(class_="form-control", placeholder="Password") }}
-        {% if form.password.errors -%}
-        <div class="text-danger">{{ form.password.errors[0] }}</div>
-        {%- endif %}
-      </div>
-      <div class="checkbox">
+<div class="mui-panel">
+  <form method="post" action="{{ url_for('auth.login', **request.args) }}" role="form">
+    <legend>Log in to your account</legend>
+    {{ form.csrf_token }}
+    <div class="mui-form-group">
+      {{ form.email(class_="mui-form-control", placeholder="Email address",
+                    autofocus="true", type="email") }}
+      {% if form.email.errors -%}
+      <div class="mui-text-danger">{{ form.email.errors[0] }}</div>
+      {%- endif %}
+    </div>
+    <div class="mui-form-group">
+      {{ form.password(class_="mui-form-control", placeholder="Password") }}
+      {% if form.password.errors -%}
+      <div class="mui-text-danger">{{ form.password.errors[0] }}</div>
+      {%- endif %}
+    </div>
+    <div class="mui-checkbox">
+      <label>
         {{ form.remember_me() }}
-        {{ form.remember_me.label }}
-      </div>
-      <button type="submit" class="btn btn-primary">Log in</button>
-      <a href="{{ url_for('auth.forgot') }}">Forgot password?</a>
-    </form>
-  </div>
+        Remember me
+      </label>
+    </div>
+    <button type="submit" class="mui-btn mui-btn-primary">Log in</button>
+    <a href="{{ url_for('auth.forgot') }}">Forgot password?</a>
+  </form>
 </div>
-<div class="panel panel-default">
-  <div class="panel-body text-center">
-    Don't have an account? <a href="{{ url_for('auth.create_account') }}">Create a new account &raquo;</a>
-  </div>
+<div class="mui-panel mui-text-center">
+  Don't have an account? <a href="{{ url_for('auth.create_account') }}">Create a new account &raquo;</a>
 </div>
 {% endblock %}

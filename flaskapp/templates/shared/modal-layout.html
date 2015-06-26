@@ -2,30 +2,27 @@
 
 
 {% block HTML %}
-<div id="g-modal-wrapper">
-  <header class="text-center">
+<div id="modal-wrapper">
+  <header class="mui-text-center">
     {{ modal_header_html() }}
   </header>
   <div class="container-fluid">
     {% block BODY %}{% endblock %}
   </div>
 </div>
-<footer id="g-modal-footer">
+<footer id="modal-footer">
   {{ modal_footer_html() }}
 </footer>
 {% endblock %}
 
 
 {% macro modal_header_html() -%}
-<a id="modal-header-brand" href="/">Flaskapp</a>
+<a id="modal-header-brand" href="{{ url_for('content.home') }}">Flaskapp</a>
 {%- endmacro %}
 
 
 {% macro modal_footer_html() -%}
-<nav role="navigation">
-  <div class="container-fluid">
-    <a href="mailto:contact@example.com">Contact us</a>
-    &middot;
-    &copy;{{ h.datetime.datetime.today().year }} Flaskapp
+<nav class="mui-container-fluid">
+  &copy;{{ h.datetime.datetime.today().year }} Flaskapp
 </nav>
 {%- endmacro %}

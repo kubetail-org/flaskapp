@@ -5,9 +5,6 @@ from flask.ext.login import login_required
 bp = Blueprint('dashboard', __name__)
 
 
-# ================================
-# Route handlers
-# ================================
 @bp.route('/', methods=['GET'])
 @login_required
 def home():
