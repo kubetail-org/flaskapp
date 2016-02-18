@@ -20,7 +20,7 @@ MAIL_PASSWORD | SMTP password               | null    | yes
 1. Create virtual environment, checkout repository
 
     ```bash
-    $ virtualenv --distribute flaskapp-env
+    $ virtualenv flaskapp-env
     $ cd flaskapp-env
     $ source bin/activate
     (flaskapp-env)$ git clone git@github.com:amorey/flaskapp.git src/flaskapp
@@ -66,14 +66,14 @@ MAIL_PASSWORD | SMTP password               | null    | yes
    Install node dependencies using npm:
 
    ```bash
-   $ cd scripts/frontend
+   $ cd static-src
    $ npm install
    ```
 
-   Run grunt:
+   Run gulp:
 
    ```bash
-   $ grunt build
+   $ ./node_modules/.bin/gulp build
    ```
 
 ## Unittests ##

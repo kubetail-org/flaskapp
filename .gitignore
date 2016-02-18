@@ -15,11 +15,8 @@
 build
 dist
 *.egg-info
-docs/_build
 *.egg
-*.mo
-# styles
+node_modules
+.sass-cache
 app.db
 test.db
-scripts/frontend/node_modules
-scripts/frontend/.sass-cache
