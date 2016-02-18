@@ -40,10 +40,10 @@ function buildCss() {
       cascade: false
     }))
     .pipe(plugins.concat('style.css'))
-    .pipe(gulp.dest(dirName))
+    .pipe(gulp.dest(destDir))
     .pipe(plugins.cssmin())
     .pipe(plugins.rename('style.min.css'))
-    .pipe(gulp.dest(dirName));  
+    .pipe(gulp.dest(destDir));  
 }
 
 
@@ -67,4 +67,4 @@ function buildRev() {
     .pipe(gulp.dest(destDir + '/cache'))
     .pipe(plugins.rev.manifest())
     .pipe(gulp.dest(destDir));
-});
+}
