@@ -59,14 +59,14 @@ These instructions assume you've already checked out the repository and you're u
    Install node dependencies:
 
    ```bash
-   $ cd /path/to/flaskapp/static-src
-   $ npm install
+   (flaskapp-node-env)$ cd /path/to/flaskapp/static-src
+   (flaskapp-node-env)$ npm install
    ```
 
    Run gulp:
 
    ```bash
-   $ ./node_modules/.bin/gulp build
+   (flaskapp-node-env)$ ./node_modules/.bin/gulp build
    ```
 
 ## Unittests ##
