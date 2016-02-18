@@ -17,21 +17,14 @@ MAIL_PASSWORD | SMTP password               | null    | yes
 
 ## Quickstart
 
-1. Create virtual environment, checkout repository
-
-    ```bash
-    $ virtualenv flaskapp-env
-    $ cd flaskapp-env
-    $ source bin/activate
-    (flaskapp-env)$ git clone git@github.com:amorey/flaskapp.git src/flaskapp
-   ```
+These instructions assume you've already checked out the repository and you're using Python/Node virtual environments.
 
 1. Install dependencies
 
-   ```bash
-   (flaskapp-env)$ cd src/flaskapp
-   (flaskapp-env)$ pip install -r requirements.txt
-   ```
+    ```bash
+    (flaskapp-env)$ cd /path/to/flaskapp
+    (flaskapp-env)$ pip install -r requirements.txt
+    ```
 
 1. Setup database
 
@@ -63,10 +56,10 @@ MAIL_PASSWORD | SMTP password               | null    | yes
 
 1. Frontend build scripts
 
-   Install node dependencies using npm:
+   Install node dependencies:
 
    ```bash
-   $ cd static-src
+   $ cd /path/to/flaskapp/static-src
    $ npm install
    ```
 
