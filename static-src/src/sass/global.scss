@@ -84,6 +84,9 @@ body {
 #header {
   a {
     color: #fff;
+  }
+
+  a:not(:last-child) {
     margin-right: 10px;
   }
 }

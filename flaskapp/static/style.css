@@ -57,7 +57,9 @@ body {
  * Header CSS
  */
 #header a {
-  color: #fff;
+  color: #fff; }
+
+#header a:not(:last-child) {
   margin-right: 10px; }
 
 /**
