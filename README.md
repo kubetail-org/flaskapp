@@ -1,6 +1,22 @@
 # Flaskapp
 
-This project is meant to serve as template for new projects.
+This project is meant to serve as template for new projects. To create a new app from `flaskapp` first clone the repository and remove the `.git` directory:
+
+```bash
+$ git clone git@github.com:muicss/flaskapp.git
+$ rm -rf flaskapp/.git
+```
+
+Then, do a search-replace on the string `flaskapp`:
+
+```bash
+$ find flaskapp -type f | xargs sed -i'' -e 's/flaskapp/myapp/g'
+$ find flaskapp -type f | xargs sed -i'' -e 's/Flaskapp/Myapp/g'
+$ mv flaskapp myapp
+$ mv myapp/flaskapp myapp/myapp
+```
+
+Now you have your own flask seed project.
 
 ## Config Variables
 

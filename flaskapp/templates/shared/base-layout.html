@@ -6,7 +6,7 @@
 {{ h.stylesheet_tag(h.static('style.min.css')) }}
 <script>
   window.addEventListener('load', function() {
-    $script('//cdn.muicss.com/mui-latest/js/mui.min.js', 'mui');
+    loadjs('//cdn.muicss.com/mui-latest/js/mui.min.js', 'mui');
   });
 </script>
 
@@ -18,7 +18,7 @@
         li;
 
     ul.id = 'flash';
-    ul.className = 'mui-list-unstyled';
+    ul.className = 'mui-list--unstyled';
 
     {% for message in messages: %}
     li = document.createElement('li');
@@ -59,17 +59,17 @@
 <nav class="mui-appbar">
   <div class="mui-container">
     <table width="100%">
-      <tr class="mui-appbar-height">
+      <tr class="mui--appbar-height">
         <td>
-          <a class="mui-text-title mui-text-white" href="{{ url_for('content.home') }}">Flaskapp</a>
+          <a class="mui--text-title mui--text-white" href="{{ url_for('content.home') }}">Flaskapp</a>
         </td>
-        <td class="mui-text-right">
+        <td class="mui--text-right">
           <a href="{{ url_for('content.feedback') }}">Feedback</a>
-          {% if g.user.is_authenticated(): %}
+          {% if g.user.is_authenticated: %}
           <a href="{{ url_for('dashboard.home') }}">Dashboard</a>
           <div class="mui-dropdown">
             <a data-mui-toggle="dropdown">{{ g.user.email }} <span class="mui-caret"></span></a>
-            <ul class="mui-dropdown-menu">
+            <ul class="mui-dropdown__menu">
               <li><a href="#">Account Settings</a></li>
               <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
             </ul>

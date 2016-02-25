@@ -81,6 +81,6 @@ def on_identity_loaded(sender, identity):
     # set the identity user object
     identity.user = current_user
 
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         # add UserNeed to identity
         identity.provides.add(UserNeed(current_user.id))

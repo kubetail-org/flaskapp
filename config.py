@@ -11,6 +11,7 @@ PERMANENT_SESSION_LIFETIME = datetime.timedelta(days=30)
 
 # SQLAlchemy
 SQLALCHEMY_DATABASE_URI = 'sqlite:///' + os.path.join(basedir, 'app.db')
+SQLALCHEMY_TRACK_MODIFICATIONS = False  # Will be false in Flask-SQLA v3
 
 # Flask-Mail
 MAIL_USE_TLS = True
