@@ -1,6 +1,58 @@
 {% extends "/shared-email/skeleton.html" %}
 
 
+{% block HEADERTAGS %}
+<style data-premailer="ignore">
+  {{ h.Markup(h.pkg_resources.resource_string('flaskapp', '/static/vendor/mui-0.4.6/email/mui-email-styletag.css')) }}
+</style>
+<style>
+  {{ h.Markup(h.pkg_resources.resource_string('flaskapp', '/static/vendor/mui-0.4.6/email/mui-email-inline.css') }}
+</style>
+<style>
+  body, .mui-body {
+    background-color: #eee;
+    font-size: 15px;
+  }
+
+  .mui-container-fixed, .mui-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  #logo-wrapper {
+    padding-bottom: 7px;
+  }
+
+  #logo-img {
+    width: 55px;
+    height: 55px;
+  }
+
+  #footer {
+    font-size: 13px;
+    color: #888;
+  }
+
+  #footer a {
+    color: #888;
+  }
+
+  #footer td {
+    padding-top: 5px;
+  }
+
+  .footer-contact-link {
+    text-decoration: underline;
+  }
+
+  #social-links-wrapper img {
+    width: 25px;
+    height: 25px;
+  }
+</style>
+{% endblock %}
+
+
 {% block HTML %}
 {% block BODY %}{% endblock %}
 {% endblock %}

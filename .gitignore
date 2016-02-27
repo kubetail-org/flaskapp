@@ -17,6 +17,7 @@ dist
 *.egg-info
 *.egg
 node_modules
+npm-debug.log
 .sass-cache
 app.db
 test.db

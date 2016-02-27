@@ -20,17 +20,19 @@
   <form method="post" action="{{ url_for('auth.login', **request.args) }}" role="form">
     <legend>Log in to your account</legend>
     {{ form.csrf_token }}
-    <div class="mui-form-group">
-      {{ form.email(class_="mui-form-control", placeholder="Email address",
-                    autofocus="true", type="email") }}
+    <div class="mui-textfield">
+      {{ form.email(placeholder="Email address",
+                    autofocus="true",
+                    type="email")
+      }}
       {% if form.email.errors -%}
-      <div class="mui-text-danger">{{ form.email.errors[0] }}</div>
+        <div class="mui--text-danger">{{ form.email.errors[0] }}</div>
       {%- endif %}
     </div>
-    <div class="mui-form-group">
-      {{ form.password(class_="mui-form-control", placeholder="Password") }}
+    <div class="mui-textfield">
+      {{ form.password(placeholder="Password") }}
       {% if form.password.errors -%}
-      <div class="mui-text-danger">{{ form.password.errors[0] }}</div>
+        <div class="mui--text-danger">{{ form.password.errors[0] }}</div>
       {%- endif %}
     </div>
     <div class="mui-checkbox">
@@ -39,11 +41,11 @@
         Remember me
       </label>
     </div>
-    <button type="submit" class="mui-btn mui-btn-primary">Log in</button>
+    <button type="submit" class="mui-btn mui-btn--primary">Log in</button>
     <a href="{{ url_for('auth.forgot') }}">Forgot password?</a>
   </form>
 </div>
-<div class="mui-panel mui-text-center">
+<div class="mui-panel mui--text-center">
   Don't have an account? <a href="{{ url_for('auth.create_account') }}">Create a new account &raquo;</a>
 </div>
 {% endblock %}

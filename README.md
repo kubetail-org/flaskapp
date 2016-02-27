@@ -105,22 +105,16 @@ Dependencies:
 
  - nodejs
  - npm
- - Bower (http://bower.io/)
 
 1. Install nodejs dependencies
 
    ```bash
+   $ cd flaskapp/static-src
    $ npm install
-   ```
-
-1. Install bootstrap-sass-official
-
-   ```bash
-   $ bower install bootstrap-sass-official
    ```
 
 1. Run frontend build scripts
 
    ```bash
-   $ grunt build
+   $ ./node_modules/.bin/gulp build
    ```
