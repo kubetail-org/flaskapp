@@ -1,7 +1,9 @@
 import os
 import json
+import logging
 import pkg_resources
 
+import cssutils
 from flask import Flask, g
 from flask.ext.wtf import CsrfProtect
 from flask.ext.login import current_user
@@ -11,6 +13,10 @@ from flaskapp.lib import template_helpers
 from flaskapp.meta import mail, db, lm
 from flaskapp.models import User
 from flaskapp.views import content, auth, dashboard
+
+
+# suppress cssutils warning messages
+cssutils.log.setLevel(logging.CRITICAL)
 
 
 # ================================

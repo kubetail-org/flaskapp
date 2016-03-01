@@ -2,11 +2,11 @@
 
 
 {% block HEADERTAGS %}
-{{ h.stylesheet_tag('//cdn.muicss.com/mui-latest/css/mui.min.css') }}
+{{ h.stylesheet_tag('//cdn.muicss.com/mui-0.4.6/css/mui.min.css') }}
 {{ h.stylesheet_tag(h.static('style.min.css')) }}
 <script>
   window.addEventListener('load', function() {
-    loadjs('//cdn.muicss.com/mui-latest/js/mui.min.js', 'mui');
+    loadjs('//cdn.muicss.com/mui-0.4.6/js/mui.min.js', 'mui');
   });
 </script>
 
@@ -64,7 +64,6 @@
           <a class="mui--text-title mui--text-white" href="{{ url_for('content.home') }}">Flaskapp</a>
         </td>
         <td class="mui--text-right">
-          <a href="{{ url_for('content.feedback') }}">Feedback</a>
           {% if g.user.is_authenticated: %}
           <a href="{{ url_for('dashboard.home') }}">Dashboard</a>
           <div class="mui-dropdown">

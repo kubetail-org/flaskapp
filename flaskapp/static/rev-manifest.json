@@ -1,4 +1,19 @@
 {
   "style.css": "style-a03b3a9447.css",
-  "style.min.css": "style-7585e79c25.min.css"
+  "style.min.css": "style-7585e79c25.min.css",
+  "vendor/mui-0.4.6/angular/mui-angular.js": "vendor/mui-0.4.6/angular/mui-angular-a75af0af70.js",
+  "vendor/mui-0.4.6/angular/mui-angular.min.js": "vendor/mui-0.4.6/angular/mui-angular-189b53290d.min.js",
+  "vendor/mui-0.4.6/css/mui.css": "vendor/mui-0.4.6/css/mui-c3b98e127a.css",
+  "vendor/mui-0.4.6/css/mui.min.css": "vendor/mui-0.4.6/css/mui-dcdb2cdc19.min.css",
+  "vendor/mui-0.4.6/email/mui-email-inline.css": "vendor/mui-0.4.6/email/mui-email-inline-5de58c037a.css",
+  "vendor/mui-0.4.6/email/mui-email-styletag.css": "vendor/mui-0.4.6/email/mui-email-styletag-d8aa291e6d.css",
+  "vendor/mui-0.4.6/extra/mui-colors.css": "vendor/mui-0.4.6/extra/mui-colors-8630fec18a.css",
+  "vendor/mui-0.4.6/extra/mui-combined.js": "vendor/mui-0.4.6/extra/mui-combined-30a0724c81.js",
+  "vendor/mui-0.4.6/extra/mui-react-combined.js": "vendor/mui-0.4.6/extra/mui-react-combined-535ccc5f47.js",
+  "vendor/mui-0.4.6/js/mui.js": "vendor/mui-0.4.6/js/mui-66fd8f0201.js",
+  "vendor/mui-0.4.6/js/mui.min.js": "vendor/mui-0.4.6/js/mui-ab9bdc2461.min.js",
+  "vendor/mui-0.4.6/react/mui-react.js": "vendor/mui-0.4.6/react/mui-react-8fb4e5a88d.js",
+  "vendor/mui-0.4.6/react/mui-react.min.js": "vendor/mui-0.4.6/react/mui-react-110218e86d.min.js",
+  "vendor/mui-0.4.6/webcomponents/mui-webcomponents.js": "vendor/mui-0.4.6/webcomponents/mui-webcomponents-c157985266.js",
+  "vendor/mui-0.4.6/webcomponents/mui-webcomponents.min.js": "vendor/mui-0.4.6/webcomponents/mui-webcomponents-3ace1f3e9d.min.js"
 }

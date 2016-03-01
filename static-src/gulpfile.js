@@ -16,7 +16,10 @@ var destDir = '../flaskapp/static';
 
 gulp.task('build', gulp.series(
   clean,
-  buildCss,
+  gulp.parallel(
+    buildCss,
+    copyVendor
+  ),
   buildRev
 ));
 
@@ -44,6 +47,12 @@ function buildCss() {
     .pipe(plugins.cssmin())
     .pipe(plugins.rename('style.min.css'))
     .pipe(gulp.dest(destDir));  
+}
+
+
+function copyVendor() {
+  return gulp.src('src/vendor/**/*')
+    .pipe(gulp.dest(destDir + '/vendor'));
 }
 
 
