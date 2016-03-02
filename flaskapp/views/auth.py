@@ -34,7 +34,7 @@ def login():
         identity_changed.send(current_app._get_current_object(),
                               identity=Identity(u.id))
 
-        return redirect(request.args.get('next') or url_for('dashboard.home'))
+        return redirect(request.args.get('next') or url_for('content.home'))
 
     return render_template('/auth/login.html', form=form)
 
@@ -72,7 +72,7 @@ def create_account():
         identity_changed.send(current_app._get_current_object(),
                               identity=Identity(u.id))
 
-        return redirect(request.args.get('next') or url_for('dashboard.home'))
+        return redirect(request.args.get('next') or url_for('content.home'))
 
     return render_template('/auth/create-account.html', form=form)
 

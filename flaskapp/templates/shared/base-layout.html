@@ -2,11 +2,11 @@
 
 
 {% block HEADERTAGS %}
-{{ h.stylesheet_tag('//cdn.muicss.com/mui-0.4.6/css/mui.min.css') }}
+{{ h.stylesheet_tag('//cdn.muicss.com/mui-0.4.7/css/mui.min.css') }}
 {{ h.stylesheet_tag(h.static('style.min.css')) }}
 <script>
   window.addEventListener('load', function() {
-    loadjs('//cdn.muicss.com/mui-0.4.6/js/mui.min.js', 'mui');
+    loadjs('//cdn.muicss.com/mui-0.4.7/js/mui.min.js', 'mui');
   });
 </script>
 
@@ -65,11 +65,9 @@
         </td>
         <td class="mui--text-right">
           {% if g.user.is_authenticated: %}
-          <a href="{{ url_for('dashboard.home') }}">Dashboard</a>
           <div class="mui-dropdown">
             <a data-mui-toggle="dropdown">{{ g.user.email }} <span class="mui-caret"></span></a>
             <ul class="mui-dropdown__menu">
-              <li><a href="#">Account Settings</a></li>
               <li><a href="{{ url_for('auth.logout') }}">Log out</a></li>
             </ul>
           </div>

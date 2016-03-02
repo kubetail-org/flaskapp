@@ -1,14 +1,12 @@
 {% extends "/shared-email/base-layout.html" %}
 
 
-{% block BODY %}
-<div class="content-container">
-  <h2>Confirm your Account</h2>
-  <hr>
-  <p>To confirm your email address please click on the button below:</p>
-  <p><a href="{{ verify_url }}" class="mui-btn mui-btn--primary">Confirm Account &raquo;</a></p>
-  <p>If you're having trouble you can also use this link:</p>
-  <p><a href="{{ verify_url }}">{{ verify_url }}</a></p>
-  <p><em>Note: If you did not create an account please let us know (<a href="mailto:contact@example.com">contact@example.com</a>)</em></p>
-</div>
+{% block PANEL_CONTENT %}
+<h2>Confirm your Account</h2>
+<hr>
+<p>To confirm your email address please click on the button below:</p>
+<p><a href="{{ verify_url }}" class="mui-btn mui-btn--primary">Confirm Account &raquo;</a></p>
+<p>If you're having trouble you can also use this link:</p>
+<p><a href="{{ verify_url }}">{{ verify_url }}</a></p>
+<p><em>Note: If you did not create an account please let us know (<a href="mailto:contact@example.com">contact@example.com</a>)</em></p>
 {% endblock %}

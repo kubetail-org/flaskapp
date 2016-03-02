@@ -12,7 +12,7 @@ from flask.ext.principal import Principal, UserNeed, identity_loaded
 from flaskapp.lib import template_helpers
 from flaskapp.meta import mail, db, lm
 from flaskapp.models import User
-from flaskapp.views import content, auth, dashboard
+from flaskapp.views import content, auth
 
 
 # suppress cssutils warning messages
@@ -61,7 +61,6 @@ def create_app(extra_config=None):
     # register blueprints
     app.register_blueprint(content.bp)
     app.register_blueprint(auth.bp, url_prefix='/auth')
-    app.register_blueprint(dashboard.bp, url_prefix='/dashboard')
 
     return app
 

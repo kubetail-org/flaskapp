@@ -3,10 +3,10 @@
 
 {% block HEADERTAGS %}
 <style data-premailer="ignore">
-  {{ h.Markup(h.pkg_resources.resource_string('flaskapp', '/static/vendor/mui-0.4.6/email/mui-email-styletag.css')) }}
+  {{ h.Markup(h.pkg_resources.resource_string('flaskapp', '/static/vendor/mui-0.4.7/email/mui-email-styletag.css')) }}
 </style>
 <style>
-  {{ h.Markup(h.pkg_resources.resource_string('flaskapp', '/static/vendor/mui-0.4.6/email/mui-email-inline.css')) }}
+  {{ h.Markup(h.pkg_resources.resource_string('flaskapp', '/static/vendor/mui-0.4.7/email/mui-email-inline.css')) }}
 </style>
 <style>
   body, .mui-body {
@@ -21,11 +21,6 @@
 
   #logo-wrapper {
     padding-bottom: 7px;
-  }
-
-  #logo-img {
-    width: 55px;
-    height: 55px;
   }
 
   #footer {
@@ -44,15 +39,46 @@
   .footer-contact-link {
     text-decoration: underline;
   }
-
-  #social-links-wrapper img {
-    width: 25px;
-    height: 25px;
-  }
 </style>
 {% endblock %}
 
 
 {% block HTML %}
-{% block BODY %}{% endblock %}
+<table class="mui-body" cellpadding="0" cellspacing="0" border="0">
+  <tr>
+    <td>
+      <center>
+        <!--[if mso]><table><tr><td class="mui-container-fixed"><![endif]-->
+        <div class="mui-container">
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td id="logo-wrapper" class="mui--text-center">
+                <a class="mui--text-headline mui--text-dark" href="{{ url_for('content.home') }}">Flaskapp</a>
+              </td>
+            </tr>
+          </table>
+          <table cellpadding="0" cellspacing="0" border="0" width="100%">
+            <tr>
+              <td class="mui-panel">{% block PANEL_CONTENT %}{% endblock %}</td>
+            </tr>
+          </table>
+          {{ footer_html() }}
+        </div>
+        <!--[if mso]></td></tr></table><![endif]-->
+      </center>
+    </td>
+  </tr>
+</table>
 {% endblock %}
+
+
+{% macro footer_html() %}
+<table id="footer" cellpadding="0" cellspacing="0" border="0" width="100%">
+  <tr>
+    <td>
+      <div>&copy;{{h.datetime.datetime.today().year}} Flaskapp</div>
+      <div><a class="footer-contact-link" href="mailto:contact@flaskapp.com">contact@flaskapp.com</a></div>
+    </td>
+  </tr>
+</table>
+{% endmacro %}

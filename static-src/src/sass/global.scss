@@ -86,16 +86,24 @@ buttons {
 /**
  * Header CSS
  */
-#header {
-  a {
+#header td {
+  > a {
     color: #fff;
   }
 
-  a:not(:last-child) {
+  > a:not(:last-child) {
     margin-right: 10px;
   }
 }
 
+#header a[data-mui-toggle="dropdown"] {
+  color: #fff;
+  cursor: pointer;
+
+  :hover {
+    color: #fff;
+  }
+}
 
 /**
  * Modal CSS
