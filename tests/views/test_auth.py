@@ -28,7 +28,7 @@ class AuthTests(WebsiteTestCase):
         resp = self.create_account(email, passwd, passwd)
         self.assertEqual(resp.status_code, 302)
         self.assertEqual(resp.headers['Location'],
-                         self.url_for('dashboard.home'))
+                         self.url_for('content.home'))
                 
         resp = self.client.get(self.url_for('content.home'))
         self.assertTrue(email in resp.data)
@@ -72,7 +72,7 @@ class AuthTests(WebsiteTestCase):
         resp = self.login(email, passwd)
         self.assertEqual(resp.status_code, 302)
         self.assertEqual(resp.headers['Location'],
-                         self.url_for('dashboard.home'))
+                         self.url_for('content.home'))
 
         resp = self.client.get(self.url_for('content.home'))
         self.assertTrue(email in resp.data)
