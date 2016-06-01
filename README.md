@@ -42,7 +42,7 @@ To work in a sandboxed Python environment we recommend installing the app in a P
     $ pip install -r requirements.txt
     ```
 
-1. Setup database
+1. Setup the sqlite database (`app.db`)
 
    ```bash
    $ python scripts/create_db.py
