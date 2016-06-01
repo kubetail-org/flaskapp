@@ -4,7 +4,7 @@
 {% block HEADERTAGS %}
 {{ super() }}
 <style>
-  .panel {
+  .mui-panel {
     max-width: 500px;
     margin: 0 auto;
   }
@@ -13,14 +13,12 @@
 
 
 {% block BODY %}
-<div class="panel panel-default">
-  <div class="panel-body">
-    <legend>Success! Your email has been verified</legend>
-    <p>Your email address has been verified.</p>
-    <p>Would you like to:</p>
-    <ul>
-      <li><a href="{{ url_for('content.home') }}">Continue using the site</a></li>
-    </ul>
-  </div>
+<div class="mui-panel">
+  <legend>Success! Your email has been verified</legend>
+  <p>Your email address has been verified.</p>
+  <p>Would you like to:</p>
+  <ul>
+    <li><a href="{{ url_for('content.home') }}">Continue using the site</a></li>
+  </ul>
 </div>
 {% endblock %}
