@@ -70,12 +70,6 @@ To work in a sandboxed Python environment we recommend installing the app in a P
    $ source /path/to/env-vars.sh
    ```
 
-1. Run unittests
-
-    ```bash
-    $ nosetests
-    ```
-
 1. Run development server
 
    ```bash
@@ -113,22 +107,3 @@ To run an individual test:
 $ nosetests tests/views/test_content.py
 ```
 
-## Development ##
-
-Dependencies:
-
- - nodejs
- - npm
-
-1. Install nodejs dependencies
-
-   ```bash
-   $ cd flaskapp/static-src
-   $ npm install
-   ```
-
-1. Run frontend build scripts
-
-   ```bash
-   $ ./node_modules/.bin/gulp build
-   ```
