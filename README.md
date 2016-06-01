@@ -1,4 +1,4 @@
-# Flaskapp Seed App
+# Flask Seed App
 
 This project is meant to serve as template for new projects. To create a new app from `flaskapp` first clone the repository and remove the `.git` directory:
 
@@ -106,4 +106,8 @@ To run an individual test:
 ```bash
 $ nosetests tests/views/test_content.py
 ```
+
+## Contribute ##
+
+Contributions are welcome! If you'd like to report an issue or submit a pull request please use our github page: https://github.com/muicss/flaskapp.
 
