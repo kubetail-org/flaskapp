@@ -106,7 +106,8 @@ class AuthTests(WebsiteTestCase):
 
         # test that key works
         resp = self.client.get(reset_url)
-        self.assertTrue('New Password' in resp.data)
+        print resp.data
+        self.assertTrue('Choose a new password' in resp.data)
 
     def test_reset_password(self):
         email = users['userA']['email']
