@@ -5,12 +5,13 @@
 
 This app is meant to serve as template for new projects. It has the following features:
 
-  * User accounts implemented with SQLite and cookies
+  * User accounts implemented with SQLite, cookies and Flask-Login
   * Passwords hashed with bcrypt
-  * CSRF protection
+  * CSRF protection with Flask-CSRF
+  * Email with Flask-Mail
   * Login/logout/forgot password workflow
   * Static asset build step with gulp
-  * HTML Emails
+  * Basic HTML Web and Email templates with MUI (https://www.muicss.com)
   * Unittests
 
 To create a new app from `flaskapp` first clone the repository and remove the `.git` directory:
