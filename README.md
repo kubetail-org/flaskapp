@@ -33,39 +33,53 @@ MAIL_PASSWORD | SMTP password               | null    | yes
 
 ## Quickstart
 
-These instructions assume you've already checked out the repository and you're using Python/Node virtual environments.
+To work in a sandboxed Python environment we recommend installing the app in a Python [virtualenv](https://pypi.python.org/pypi/virtualenv).
 
 1. Install dependencies
 
     ```bash
-    (flaskapp-env)$ cd /path/to/flaskapp
-    (flaskapp-env)$ pip install -r requirements.txt
+    $ cd /path/to/flaskapp
+    $ pip install -r requirements.txt
     ```
 
 1. Setup database
 
    ```bash
-   (flaskapp-env)$ python scripts/create_db.py
+   $ python scripts/create_db.py
    ```
 
 1. Environment variables
 
-   In order to configure flaskapp it is recommended that you create an environment file with the required variables listed above. To add the variables to your environment you can source the file as part of your normal workflow:
-
+   In order to configure flaskapp it is recommended that you create an environment file with the required variables listed above:
+   
    ```bash
-   (flaskapp-env)$ source /path/to/env-vars.sh
+   #!/bin/bash
+   # Environment variables for Flask seed app
+   
+   export DEBUG="True"
+   export SECRET_KEY="replaceme"
+   export MAIL_PORT="587"
+   export MAIL_SERVER="mail.google.com"
+   export MAIL_USERNAME="user@example.com"
+   export MAIL_PASSWORD="replaceme"
+   ```
+   
+   To add the variables to your environment you can source the file as part of your normal workflow:
+   
+   ```bash
+   $ source /path/to/env-vars.sh
    ```
 
 1. Run unittests
 
     ```bash
-    (flaskapp-env)$ nosetests
+    $ nosetests
     ```
 
 1. Run development server
 
    ```bash
-   (flaskapp-env)$ python wsgi.py
+   $ python wsgi.py
    ```
 
    View at http://127.0.0.1:5000
@@ -75,14 +89,14 @@ These instructions assume you've already checked out the repository and you're u
    Install node dependencies:
 
    ```bash
-   (flaskapp-node-env)$ cd /path/to/flaskapp/static-src
-   (flaskapp-node-env)$ npm install
+   $ cd /path/to/flaskapp/static-src
+   $ npm install
    ```
 
    Run gulp:
 
    ```bash
-   (flaskapp-node-env)$ ./node_modules/.bin/gulp build
+   $ ./node_modules/.bin/gulp build
    ```
 
 ## Unittests ##
@@ -90,13 +104,13 @@ These instructions assume you've already checked out the repository and you're u
 To run all tests:
 
 ```bash
-(flaskapp-env)$ nosetests
+$ nosetests
 ```
 
 To run an individual test:
 
 ```bash
-(flaskapp-env)$ nosetests tests/views/test_content.py
+$ nosetests tests/views/test_content.py
 ```
 
 ## Development ##
