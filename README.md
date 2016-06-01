@@ -1,5 +1,8 @@
 # Flask Seed App
 
+[![Requirements Status](https://requires.io/github/muicss/flaskapp/requirements.svg?branch=master)](https://requires.io/github/muicss/flaskapp/requirements/?branch=master)
+[![devDependency Status](https://david-dm.org/muicss/flaskapp/dev-status.svg?path=static-src)](https://david-dm.org/muicss/flaskapp?path=static-src#info=devDependencies)
+
 This seed app is meant to serve as template for new projects. It has the following features:
 
   * User accounts implemented with SQLite and cookies
