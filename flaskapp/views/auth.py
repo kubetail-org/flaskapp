@@ -3,10 +3,10 @@ import datetime
 
 from flask import (Blueprint, render_template, url_for, redirect, request,
                    current_app, g)
-from flask.ext.login import login_user, logout_user, login_required
-from flask.ext.principal import identity_changed, Identity, AnonymousIdentity
-from flask.ext.mail import Message
-from flask.ext.wtf import Form
+from flask_login import login_user, logout_user, login_required
+from flask_principal import identity_changed, Identity, AnonymousIdentity
+from flask_mail import Message
+from flask_wtf import Form
 from premailer import transform
 
 from flaskapp.meta import db, mail

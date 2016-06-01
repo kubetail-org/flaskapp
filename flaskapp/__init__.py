@@ -5,9 +5,9 @@ import pkg_resources
 
 import cssutils
 from flask import Flask, g
-from flask.ext.wtf import CsrfProtect
-from flask.ext.login import current_user
-from flask.ext.principal import Principal, UserNeed, identity_loaded
+from flask_wtf import CsrfProtect
+from flask_login import current_user
+from flask_principal import Principal, UserNeed, identity_loaded
 
 from flaskapp.lib import template_helpers
 from flaskapp.meta import mail, db, lm
