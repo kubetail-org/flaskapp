@@ -1,6 +1,16 @@
 # Flask Seed App
 
-This project is meant to serve as template for new projects. To create a new app from `flaskapp` first clone the repository and remove the `.git` directory:
+This seed app is meant to serve as template for new projects. It has the following features:
+
+  * User accounts implemented with SQLite and cookies
+  * Passwords hashed with bcrypt
+  * CSRF protection
+  * Login/logout/forgot password workflow
+  * Static asset build step with gulp
+  * HTML Emails
+  * Unittests
+
+To create a new app from `flaskapp` first clone the repository and remove the `.git` directory:
 
 ```bash
 $ git clone git@github.com:muicss/flaskapp.git
@@ -42,7 +52,7 @@ To work in a sandboxed Python environment we recommend installing the app in a P
     $ pip install -r requirements.txt
     ```
 
-1. Setup the sqlite database (`app.db`)
+1. Setup a SQLite database for development (`app.db`)
 
    ```bash
    $ python scripts/create_db.py
