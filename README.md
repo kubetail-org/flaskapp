@@ -1,4 +1,4 @@
-# Flaskapp
+# Flaskapp Seed App
 
 This project is meant to serve as template for new projects. To create a new app from `flaskapp` first clone the repository and remove the `.git` directory:
 
