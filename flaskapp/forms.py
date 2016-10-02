@@ -1,7 +1,7 @@
 import urlparse
 
 from flask import g
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import (TextField, PasswordField, BooleanField, TextAreaField,
                      FileField)
 from wtforms.validators import (Required, Email, URL, EqualTo, ValidationError,
@@ -15,7 +15,7 @@ from flaskapp.lib.util import verify_password_hash
 # ============================
 # Auth forms
 # ============================
-class LoginForm(Form):
+class LoginForm(FlaskForm):
     """Sign in form
     """
     email = TextField(
@@ -49,7 +49,7 @@ class LoginForm(Form):
             raise ValidationError('Email and password must match')
 
 
-class CreateAccountForm(Form):
+class CreateAccountForm(FlaskForm):
     """Create account form
     """
     email = TextField(
@@ -88,7 +88,7 @@ class CreateAccountForm(Form):
             raise ValidationError('Did your forget your password?')
 
 
-class ForgotPasswordForm(Form):
+class ForgotPasswordForm(FlaskForm):
     email = TextField(
         'Email address',
         validators=[
@@ -104,7 +104,7 @@ class ForgotPasswordForm(Form):
             raise ValidationError('Sorry, %s is not registered' % field.data)
 
 
-class ResetPasswordForm(Form):
+class ResetPasswordForm(FlaskForm):
     password = PasswordField(
         'New Password',
         widget=PasswordInput(hide_value=False),
@@ -124,7 +124,7 @@ class ResetPasswordForm(Form):
 # ====================================
 # Miscellaneous forms
 # ====================================
-class FeedbackForm(Form):
+class FeedbackForm(FlaskForm):
     """Feedback form
     """
     email = TextField(
