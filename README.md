@@ -24,10 +24,10 @@ $ rm -rf flaskapp/.git
 Then, do a search-replace on the string `flaskapp`:
 
 ```bash
-$ find flaskapp -type f | xargs sed -i'' -e 's/flaskapp/myapp/g'
-$ find flaskapp -type f | xargs sed -i'' -e 's/Flaskapp/Myapp/g'
-$ mv flaskapp myapp
-$ mv myapp/flaskapp myapp/myapp
+$ find flaskapp -type f | xargs sed -i'' -e 's/flaskapp/<new-name>/g'
+$ find flaskapp -type f | xargs sed -i'' -e 's/Flaskapp/<New-Name>/g'
+$ mv flaskapp <new-name>
+$ mv <new-name>/flaskapp <new-name>/<new-name>
 ```
 
 Now you have your own flask seed project.
