@@ -5,7 +5,7 @@
     "del": "^2.2.2",
     "gulp": "git+https://github.com/gulpjs/gulp#4.0",
     "gulp-autoprefixer": "^3.1.1",
-    "gulp-concat": "^2.6.0",
+    "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.1.7",
     "gulp-load-plugins": "^1.4.0",
     "gulp-rename": "^1.2.2",
