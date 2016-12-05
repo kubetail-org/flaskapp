@@ -6,7 +6,7 @@ from flask import (Blueprint, render_template, url_for, redirect, request,
 from flask_login import login_user, logout_user, login_required
 from flask_principal import identity_changed, Identity, AnonymousIdentity
 from flask_mail import Message
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from premailer import transform
 
 from flaskapp.meta import db, mail
@@ -169,7 +169,7 @@ def email_verification_request():
     """
     u = g.user
 
-    form = Form()
+    form = FlaskForm()
     if form.validate_on_submit():
         send_verification_email(u)
         fn = '/auth/email-verification-request-followup.html'
