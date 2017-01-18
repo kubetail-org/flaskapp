@@ -13,7 +13,12 @@
 
 {% block BODY %}
 <div class="mui-panel">
-  <form method="post" action="{{ url_for('auth.forgot') }}" role="form">
+  <form
+    class="mui-form"
+    method="post"
+    action="{{ url_for('auth.forgot') }}"
+    role="form"
+  >
     <legend>Reset your password</legend>
     {{ form.csrf_token }}
     <div class="mui-textfield">

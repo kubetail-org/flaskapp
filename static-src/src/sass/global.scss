@@ -45,18 +45,21 @@ buttons {
 }
 
 #wrapper {
+  box-sizing: border-box;
   min-height: 100%;
   margin-bottom: -($footerHeight);
   padding-bottom: $footerHeight;
 }
 
 #footer {
+  box-sizing: border-box;
   height: $footerHeight;
   line-height: $footerHeight;
   background-color: $footerBackgroundColor;
 }
 
 #panel {
+  box-sizing: border-box;
   $heightExpr: "100vh - 200px";
   min-height: -webkit-calc(#{$heightExpr});
   min-height: -moz-calc(#{$heightExpr});

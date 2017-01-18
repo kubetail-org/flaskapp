@@ -17,7 +17,12 @@
 
 {% block BODY %}
 <div class="mui-panel">
-  <form method="post" action="{{ url_for('auth.login', **request.args) }}" role="form">
+  <form
+    class="mui-form"
+    method="post"
+    action="{{ url_for('auth.login', **request.args) }}"
+    role="form"
+  >
     <legend>Log in to your account</legend>
     {{ form.csrf_token }}
     <div class="mui-textfield">

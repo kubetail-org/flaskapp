@@ -13,7 +13,12 @@
 
 {% block BODY %}
 <div class="mui-panel">
-  <form method="post" action="{{ url_for('auth.create_account', **request.args) }}" role="form">
+  <form
+    class="mui-form"
+    method="post"
+    action="{{ url_for('auth.create_account', **request.args) }}"
+    role="form"
+  >
     <legend>Create a new account</legend>
     {{ form.csrf_token }} 
     <div class="mui-textfield">

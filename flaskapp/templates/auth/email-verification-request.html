@@ -14,9 +14,12 @@
 
 {% block BODY %}
 <div class="mui-panel">
-  <form method="post"
-        action="{{ url_for('.email_verification_request', **request.args) }}"
-        role="form">
+  <form 
+    class="mui-form"
+    method="post"
+    action="{{ url_for('.email_verification_request', **request.args) }}"
+    role="form"
+  >
     <legend>Send verification request</legend>
     {{ form.csrf_token }}
     <p>A verification request will be sent to your email address. Please check your inbox for an email from us with insructions on how to verify your email address.</p>
