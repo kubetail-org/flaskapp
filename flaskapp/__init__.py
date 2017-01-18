@@ -5,7 +5,7 @@ import pkg_resources
 
 import cssutils
 from flask import Flask, g
-from flask_wtf import CsrfProtect
+from flask_wtf import CSRFProtect
 from flask_login import current_user
 from flask_principal import Principal, UserNeed, identity_loaded
 
@@ -41,7 +41,7 @@ def create_app(extra_config=None):
     app.jinja_env.globals.update({'h': template_helpers})
 
     # add Flask-WTForms CSRF Protection
-    CsrfProtect(app)
+    CSRFProtect(app)
 
     # init Flask-SQLAlchemy
     db.init_app(app)
