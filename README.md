@@ -104,7 +104,7 @@ To work in a sandboxed Python environment we recommend installing the app in a P
    Run gulp:
 
    ```bash
-   $ ./node_modules/.bin/gulp build
+   $ npm run build
    ```
 
 ## Unittests ##
