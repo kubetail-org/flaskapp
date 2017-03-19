@@ -1,5 +1,3 @@
-import urlparse
-
 from flask import g
 from flask_wtf import FlaskForm
 from wtforms import (TextField, PasswordField, BooleanField, TextAreaField,

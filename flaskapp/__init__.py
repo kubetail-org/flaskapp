@@ -35,7 +35,7 @@ def create_app(extra_config=None):
 
     # import static file manifest
     js = pkg_resources.resource_string('flaskapp', '/static/rev-manifest.json')
-    app.config['static_manifest'] = json.loads(js)
+    app.config['static_manifest'] = json.loads(js.decode('utf-8'))
 
     # configure jinja2
     app.jinja_env.globals.update({'h': template_helpers})
