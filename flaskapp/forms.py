@@ -1,4 +1,4 @@
-import urlparse
+import urllib.parse
 
 from flask import g
 from flask_wtf import FlaskForm
