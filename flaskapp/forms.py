@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import urllib.parse
-
-=======
->>>>>>> 589b9abbabdc16b43c24c3a248f10ab737bb1e34
 from flask import g
 from flask_wtf import FlaskForm
 from wtforms import (TextField, PasswordField, BooleanField, TextAreaField,
