@@ -1,5 +1,7 @@
 import os
 import datetime
+# Python3 not support encode hex and use binascii replace
+import binascii
 
 from flask import (Blueprint, render_template, url_for, redirect, request,
                    current_app, g)
@@ -88,7 +90,7 @@ def forgot():
 
         # create reset password
         # Todo: delete all previous entries
-        r = PasswordResetRequest(key=os.urandom(32).encode('hex'),
+        r = PasswordResetRequest(key=binascii.hexlify(os.urandom(32)).decode(),
                                  user=u)
 
         # save to db
@@ -98,8 +100,8 @@ def forgot():
         # generate email
         msg = Message('Password Reset Request',
                       recipients=[u.email])
-        reset_url = url_for('auth.reset_password', key=r.key, email=u.email, \
-                                _external=True)
+        reset_url = url_for('auth.reset_password', key=r.key, email=u.email,
+                            _external=True)
 
         # txt
         msg.body = render_template('/auth/reset-password-email.txt',
@@ -214,7 +216,7 @@ def send_verification_email(user):
     """Send verification email to user
     """
     # create email verification request
-    r = EmailVerificationRequest(key=os.urandom(32).encode('hex'),
+    r = EmailVerificationRequest(key=binascii.hexlify(os.urandom(32)).decode(),
                                  user=user)
     db.session.add(r)
     db.session.flush()
@@ -222,8 +224,8 @@ def send_verification_email(user):
     # send email
     subject = 'Flaskapp Account: Please Confirm Email'
     msg = Message(subject, recipients=[user.email])
-    verify_url = url_for('.verify_email', key=r.key, email=user.email, \
-                             _external=True)
+    verify_url = url_for('.verify_email', key=r.key, email=user.email,
+                         _external=True)
 
     f = '/auth/verify-email-email'
     msg.body = render_template(f + '.txt', verify_url=verify_url)

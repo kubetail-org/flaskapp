@@ -36,7 +36,7 @@ class User(db.Model):
         return False
 
     def get_id(self):
-        return unicode(self.id)
+        return self.id
 
 
 class PasswordResetRequest(db.Model):
@@ -44,8 +44,8 @@ class PasswordResetRequest(db.Model):
     """
     key = db.Column(db.String(64), primary_key=True)
     fk_user = db.Column(db.Integer, db.ForeignKey('user.id'))
-    create_ts = db.Column(db.DateTime, default=datetime.datetime.utcnow, \
-                              nullable=False)
+    create_ts = db.Column(db.DateTime, default=datetime.datetime.utcnow,
+                          nullable=False)
 
 
 class EmailVerificationRequest(db.Model):
@@ -53,5 +53,5 @@ class EmailVerificationRequest(db.Model):
     """
     key = db.Column(db.String(64), primary_key=True)
     fk_user = db.Column(db.Integer, db.ForeignKey('user.id'))
-    create_ts = db.Column(db.DateTime, default=datetime.datetime.utcnow, \
-                              nullable=False)
+    create_ts = db.Column(db.DateTime, default=datetime.datetime.utcnow,
+                          nullable=False)
