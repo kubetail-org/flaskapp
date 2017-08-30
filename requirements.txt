@@ -12,14 +12,14 @@ Flask-Mail==0.9.1
 Flask-Principal==0.4.0
 Flask-SQLAlchemy==2.2
 Flask-WTF==0.14.2
-idna==2.5
+idna==2.6
 itsdangerous==0.24
 Jinja2==2.9.6
 lxml==3.8.0
 MarkupSafe==1.0
 premailer==3.1.1
 pycparser==2.18
-requests==2.18.3
+requests==2.18.4
 six==1.10.0
 SQLAlchemy==1.1.13
 urllib3==1.22
