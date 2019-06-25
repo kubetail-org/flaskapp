@@ -88,8 +88,7 @@ def forgot():
 
         # create reset password
         # Todo: delete all previous entries
-        r = PasswordResetRequest(key=os.urandom(32).encode('hex'),
-                                 user=u)
+        r = PasswordResetRequest(key=os.urandom(32).hex(), user=u)
 
         # save to db
         db.session.add(r)
@@ -214,8 +213,7 @@ def send_verification_email(user):
     """Send verification email to user
     """
     # create email verification request
-    r = EmailVerificationRequest(key=os.urandom(32).encode('hex'),
-                                 user=user)
+    r = EmailVerificationRequest(key=os.urandom(32).hex(), user=user)
     db.session.add(r)
     db.session.flush()
 
@@ -231,4 +229,5 @@ def send_verification_email(user):
     html = render_template(f + '.html', verify_url=verify_url)
     base_url = url_for('content.home', _external=True)
     msg.html = transform(html, base_url=base_url)
+    print(msg.html)
     mail.send(msg)
