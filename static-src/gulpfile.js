@@ -39,7 +39,6 @@ function buildCss() {
   return gulp.src('src/sass/global.scss')
     .pipe(plugins.sass())
     .pipe(plugins.autoprefixer({
-      browsers: ['last 2 versions'],
       cascade: false
     }))
     .pipe(plugins.concat('style.css'))

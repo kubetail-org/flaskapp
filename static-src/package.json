@@ -1,17 +1,20 @@
 {
   "name": "flaskapp",
   "version": "0.0.1",
+  "browserslist": [
+    "last 3 versions"
+  ],
   "scripts": {
     "build": "gulp build"
   },
   "devDependencies": {
-    "autoprefixer": "^9.5.0",
-    "del": "^4.0.0",
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^6.0.0",
+    "autoprefixer": "^9.6.0",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-load-plugins": "^1.5.0",
+    "gulp-load-plugins": "^1.6.0",
     "gulp-rename": "^1.4.0",
     "gulp-rev": "^9.0.0",
     "gulp-sass": "^4.0.2"
