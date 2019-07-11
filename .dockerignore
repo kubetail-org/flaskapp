@@ -1,0 +1,10 @@
+/static-src
+
+/.git
+
+**/__pycache__
+*~
+*.pyc
+*.swp
+*.swo
+*.un~

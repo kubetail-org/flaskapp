@@ -1,19 +1,34 @@
-FROM python:2.7.14-alpine
+FROM python:3.7.4-alpine as base
 MAINTAINER Andres Morey "andresmarcel@gmail.com"
 
-# add app
+# -----------------------------------------------------------------------------
+
+FROM base as builder
+
+# system dependencies
+RUN apk update \
+    && apk add --no-cache --virtual build-dependencies gcc libffi-dev libxml2-dev musl-dev \
+    && apk add --no-cache libxslt-dev \
+    && apk add --no-cache bash
+
+# python dependencies
+COPY requirements.txt /requirements.txt
+RUN pip install -r /requirements.txt
+
+# cleanup /usr/lib
+RUN apk del build-dependencies
+
+# -----------------------------------------------------------------------------
+
+FROM base
+
+# copy dependencies
+COPY --from=builder /usr/lib /usr/lib
+COPY --from=builder /usr/local /usr/local
+
+# copy source
 COPY . /app
 WORKDIR /app
-
-# install system dependencies
-RUN apk update
-RUN apk add gcc libffi-dev libxml2-dev libxslt-dev musl-dev
-
-# upgrade pip
-RUN pip install -U pip
-
-# install app
-RUN pip install -r requirements.txt
 
 # entrypoint
 ENTRYPOINT ["gunicorn", "wsgi:app"]
