@@ -5,19 +5,10 @@
 # *.[oa]
 # *~
 *.pyc
-*.pyo
-*.md5
-*.so
-*.swp
-*.swo
 *~
 \#*
-build
-dist
-*.egg-info
-*.egg
 node_modules
 npm-debug.log
-.sass-cache
 app.db
 test.db
+__pycache__
