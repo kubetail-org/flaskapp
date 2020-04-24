@@ -1,4 +1,4 @@
-FROM python:3.7.4-alpine as base
+FROM python:3.8.2-alpine as base
 MAINTAINER Andres Morey "andresmarcel@gmail.com"
 
 # -----------------------------------------------------------------------------
@@ -7,7 +7,7 @@ FROM base as builder
 
 # system dependencies
 RUN apk update \
-    && apk add --no-cache --virtual build-dependencies gcc libffi-dev libxml2-dev musl-dev \
+    && apk add --no-cache --virtual build-dependencies gcc libffi-dev libxml2-dev musl-dev make \
     && apk add --no-cache libxslt-dev \
     && apk add --no-cache bash
 

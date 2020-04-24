@@ -8,14 +8,14 @@
     "build": "gulp build"
   },
   "devDependencies": {
-    "autoprefixer": "^9.6.0",
-    "del": "^4.1.1",
+    "autoprefixer": "^9.7.6",
+    "del": "^5.1.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
+    "gulp-autoprefixer": "^7.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-cssmin": "^0.2.0",
-    "gulp-load-plugins": "^1.6.0",
-    "gulp-rename": "^1.4.0",
+    "gulp-load-plugins": "^2.0.3",
+    "gulp-rename": "^2.0.0",
     "gulp-rev": "^9.0.0",
     "gulp-sass": "^4.0.2"
   }
