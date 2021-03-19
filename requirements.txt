@@ -20,7 +20,7 @@ greenlet==0.4.17
 gunicorn==20.0.4
 idna==2.10
 itsdangerous==1.1.0
-Jinja2==2.11.2
+Jinja2==2.11.3
 lxml==4.6.2
 MarkupSafe==1.1.1
 premailer==3.7.0
