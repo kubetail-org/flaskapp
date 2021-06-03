@@ -126,7 +126,11 @@ def reset_password():
     # get password-reset entry
     f = (PasswordResetRequest.key == request.args.get('key'),
          User.email == request.args.get('email'))
-    r = PasswordResetRequest.query.filter(*f).first()
+    r = PasswordResetRequest\
+        .query\
+        .filter(*f)\
+        .filter(PasswordResetRequest.fk_user == User.id)\
+        .first()
 
     # return error response if link doesn't exist or wrong email
     if r == None or r.user.email != request.args['email']:
@@ -184,7 +188,11 @@ def verify_email():
     # get email-verification-request entry
     f = (EmailVerificationRequest.key == request.args.get('key'),
          User.email == request.args.get('email'))
-    r = EmailVerificationRequest.query.filter(*f).first()
+    r = EmailVerificationRequest\
+        .query\
+        .filter(*f)\
+        .filter(EmailVerificationRequest.fk_user == User.id)\
+        .first()
 
     # return error response if link doesn't exist or wrong email
     if r == None or r.user.email != request.args['email']:
