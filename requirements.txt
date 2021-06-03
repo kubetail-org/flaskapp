@@ -29,7 +29,7 @@ pycparser==2.20
 requests==2.25.1
 six==1.15.0
 SQLAlchemy==1.4.4
-urllib3==1.26.4
+urllib3==1.26.5
 Werkzeug==1.0.1
 WTForms==2.3.3
 zope.event==4.5.0
