@@ -2,7 +2,8 @@ var path = require('path');
 
 var del = require('del'),
     gulp = require('gulp'),
-    plugins = require('gulp-load-plugins')();
+    plugins = require('gulp-load-plugins')(),
+    sass = require('gulp-sass')(require('sass'));
 
 
 var destDir = '../flaskapp/static';
@@ -37,13 +38,13 @@ function clean(done) {
 
 function buildCss() {
   return gulp.src('src/sass/global.scss')
-    .pipe(plugins.sass())
+    .pipe(sass().on('error', sass.logError))
     .pipe(plugins.autoprefixer({
       cascade: false
     }))
     .pipe(plugins.concat('style.css'))
     .pipe(gulp.dest(destDir))
-    .pipe(plugins.cssmin())
+    .pipe(plugins.cssnano({discardComments: {removeAll: true}}))
     .pipe(plugins.rename('style.min.css'))
     .pipe(gulp.dest(destDir));  
 }
