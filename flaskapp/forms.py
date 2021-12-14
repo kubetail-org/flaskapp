@@ -1,9 +1,9 @@
 from flask import g
 from flask_wtf import FlaskForm
-from wtforms import (TextField, PasswordField, BooleanField, TextAreaField,
+from wtforms import (StringField, PasswordField, BooleanField, TextAreaField,
                      FileField)
-from wtforms.validators import (Required, Email, URL, EqualTo, ValidationError,
-                                StopValidation)
+from wtforms.validators import (InputRequired, Email, URL, EqualTo,
+                                ValidationError, StopValidation)
 from wtforms.widgets import PasswordInput, CheckboxInput
 
 from flaskapp.models import User
@@ -16,10 +16,10 @@ from flaskapp.lib.util import verify_password_hash
 class LoginForm(FlaskForm):
     """Sign in form
     """
-    email = TextField(
+    email = StringField(
         'Email address',
         validators=[
-            Required('Please enter your email address'),
+            InputRequired('Please enter your email address'),
             Email()
             ])
 
@@ -27,7 +27,7 @@ class LoginForm(FlaskForm):
         'Password',
         widget=PasswordInput(hide_value=False),
         validators=[
-            Required('Please enter your password')
+            InputRequired('Please enter your password')
             ])
 
     remember_me = BooleanField(
@@ -50,10 +50,10 @@ class LoginForm(FlaskForm):
 class CreateAccountForm(FlaskForm):
     """Create account form
     """
-    email = TextField(
+    email = StringField(
         'Email address',
         validators=[
-            Required('Please enter an email address'),
+            InputRequired('Please enter an email address'),
             Email()
             ])
 
@@ -61,7 +61,7 @@ class CreateAccountForm(FlaskForm):
         'Password',
         widget=PasswordInput(hide_value=False),
         validators=[
-            Required('Please choose a password'),
+            InputRequired('Please choose a password'),
             EqualTo('password_confirm', message='Passwords must match')
             ])
     
@@ -69,7 +69,7 @@ class CreateAccountForm(FlaskForm):
         'Confirm Password',
         widget=PasswordInput(hide_value=False),
         validators=[
-            Required('Please confirm your password')
+            InputRequired('Please confirm your password')
             ])
 
     newsletter = BooleanField(
@@ -87,10 +87,10 @@ class CreateAccountForm(FlaskForm):
 
 
 class ForgotPasswordForm(FlaskForm):
-    email = TextField(
+    email = StringField(
         'Email address',
         validators=[
-            Required('Please enter an email address'),
+            InputRequired('Please enter an email address'),
             Email()
             ])
 
@@ -107,7 +107,7 @@ class ResetPasswordForm(FlaskForm):
         'New Password',
         widget=PasswordInput(hide_value=False),
         validators=[
-            Required('Please choose a password'),
+            InputRequired('Please choose a password'),
             EqualTo('password_confirm', message='Passwords must match')
             ])
 
@@ -115,7 +115,7 @@ class ResetPasswordForm(FlaskForm):
         'Confirm Password',
         widget=PasswordInput(hide_value=False),
         validators=[
-            Required('Please confirm your password')
+            InputRequired('Please confirm your password')
             ])
 
 
@@ -125,10 +125,10 @@ class ResetPasswordForm(FlaskForm):
 class FeedbackForm(FlaskForm):
     """Feedback form
     """
-    email = TextField(
+    email = StringField(
         'From',
         validators=[
-            Required('Please enter your email address'),
+            InputRequired('Please enter your email address'),
             Email()
             ])
 
