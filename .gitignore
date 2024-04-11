@@ -12,3 +12,4 @@ npm-debug.log
 app.db
 test.db
 __pycache__
+.venv

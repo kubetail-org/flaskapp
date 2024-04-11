@@ -2,7 +2,7 @@ import datetime
 import pkg_resources
 
 from flask import current_app, url_for
-from jinja2 import Markup
+from markupsafe import Markup
 
 
 __all__ = ['datetime', 'javascript_tag', 'stylesheet_tag']
