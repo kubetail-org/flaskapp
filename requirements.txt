@@ -24,7 +24,7 @@ requests==2.31.0
 setuptools==69.2.0
 SQLAlchemy==2.0.29
 typing_extensions==4.11.0
-urllib3==2.2.1
+urllib3==2.2.2
 Werkzeug==3.0.3
 WTForms==3.1.2
 zope.event==5.0
